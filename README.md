@@ -1,5 +1,6 @@
 Vital AI Documentation
 ======================
 
-Vital AI Documentation is available in the GitHub Wiki here:
-https://github.com/vital-ai/vital-documentation/wiki
+This documentation website is available here: http://vital-ai.github.io/vital-documentation/
+
+The documentation wiki is here: https://github.com/vital-ai/vital-documentation/wiki
