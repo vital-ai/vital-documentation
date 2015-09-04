@@ -1,0 +1,56 @@
+Installing the Vital AI Development Kit
+=======================================
+
+Download the Vital AI Development Kit
+-------------------------------------
+
+After signing up for an account on the http://dashboard.vital.ai[vital.ai dashboard],   
+subscribe to the Vital AI Development Kit (VDK) from the _Products_ page. Under  
+_My Products_, you will find downloads for a distribution of the VDK (tar.gz/zip),    
+the VDK install script, the VDK uninstall script, VDK documentation, and a vital.ai  
+license file which will enable you to use the VDK on your computer. 
+
+Install the Vital AI Development Kit
+------------------------------------
+*On Mac OSX, Linux, or Cygwin*
+
+* Download the VDK distribution (tar.gz/zip), the VDK install script and the     
+license file. Do not decompress the distribution.  
+
+* Set your _VITAL_HOME_ environment variable to a directory on your file system.
+
+* Add _VITAL_HOME/vitalsigns/bin_ and _VITAL_HOME/vitalservice/bin_  
+to your _PATH_ environment variable.
+
+* In a terminal window, navigate to the directory into which you downloaded the   
+VDK distribution and the VDK install script. 
+
+* Render the VDK install script executable by entering:
+
+    chmod u+x ./vdk-install-0.2.250.sh 
+  
+* Install the VDK in your _VITAL_HOME_ directory by entering:
+
+    ./vdk-install-0.2.250.sh $VITAL_HOME .    
+
+*  Place the downloaded license file into the vital-license directory within   
+your _VITAL_HOME_.
+  
+    
+Uninstalling the Vital Development Kit
+--------------------------------------
+
+*On Mac OSX, Linux, or Cygwin*
+
+* Download the vdk uninstall script.
+
+* In a terminal window, navigate to the directory into which you downloaded the 
+VDK uninstall script.  
+
+* Render the VDK uninstall script executable by entering:
+
+    chmod u+x ./vdk-uninstall-0.2.250.sh  
+
+* Uninstall the VDK by entering:  
+
+    ./vdk-uninstall-0.2.250.sh $VITAL_HOME .
