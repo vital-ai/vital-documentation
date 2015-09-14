@@ -1,0 +1,13 @@
+ai.vital.dydb
+ai.vital.dydb.core
+ai.vital.dydb.model
+ai.vital.dydb.query
+ai.vital.dydb.s3
+ai.vital.dydb.table.app
+ai.vital.dydb.table.domain
+ai.vital.dydb.table.organization
+ai.vital.dydb.table.segment
+ai.vital.dydb.transactions
+ai.vital.dydb.util
+ai.vital.service.dynamodb
+ai.vital.service.dynamodb.model
