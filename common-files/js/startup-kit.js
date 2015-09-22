@@ -184,7 +184,7 @@ startupKit.uiKitHeader._inFixedMode = function(headerClass) {
             });
 
             antiflicker.css({
-                'background-color': $('.pt-page-current', s1).css('background-color'),
+                'background-color': 'rgb(54, 57, 64)',//$('.pt-page-current', s1).css('background-color'),
                 'opacity': 1.0001 - opacityAntiflicker
             });
             

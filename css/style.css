@@ -1,3 +1,16 @@
+.header-1 .navbar a {
+  transition: color 0s, background 0s;
+  
+}
+
+.loaded .header-1 .navbar.navbar-fixed-top {
+    transition: all 0s;
+}
+
+.loaded .page-wrapper, .loaded .header-antiflicker, .loaded body > header .header-background {
+    transition: all 0s;
+}
+
 .header-1-sub .pt-page-1 .background {
   background-image: url("../img/greenstones.jpg");
   opacity: 75;
