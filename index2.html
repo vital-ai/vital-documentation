@@ -64,7 +64,7 @@
         <header class="header-1">
             <div class="container">
                 <div class="row">
-                    <div class="navbar col-sm-12 navbar-fixed-top" role="navigation">
+                    <div class="navbar col-sm-12 navbar-fixed-top" role="navigation" style="display: none;">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle"></button>
                             <a class="brand" href="#home"><img src="img/vitalai_logo_whiteoutline.png" height="50" alt=""></a>
@@ -416,6 +416,7 @@
             //deferred headre collapsing
             setTimeout(function(){
               $(window).trigger('collapse-header-1');
+              $(".navbar.col-sm-12.navbar-fixed-top").show();
             }, 100);
           });
         </script>        
