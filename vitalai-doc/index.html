@@ -409,7 +409,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .show-for-print{display:inherit!important}}
 </style>
 </head>
-<body class="article toc2 toc-left" style="max-width: 55em;">
+<body class="article toc2 toc-left" style="max-width: 80em;">
 <div id="header">
 <h1>Vital AI Documentation</h1>
 <div id="toc" class="toc2">
@@ -500,6 +500,65 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_vital_ai_ontology">14. Vital AI Ontology</a></li>
+<li><a href="#_vital_ai_overview">15. Vital AI Overview</a></li>
+<li><a href="#_vital_ai_ecosystem">16. Vital AI Ecosystem</a></li>
+<li><a href="#_the_vital_home_directory_and_environment_variable">17. The "VITAL_HOME" directory and environment variable</a></li>
+<li><a href="#_ontology_versioning">18. Ontology Versioning</a></li>
+<li><a href="#_git_integration">19. Git Integration</a></li>
+<li><a href="#_vital_ai_application_architecture">20. Vital AI Application Architecture</a></li>
+<li><a href="#_vital_ai_development_kit_vdk">21. Vital AI Development Kit (VDK)</a></li>
+<li><a href="#_vital_ai_ontologies">22. Vital AI Ontologies</a></li>
+<li><a href="#_developing_domain_ontologies">23. Developing Domain Ontologies</a></li>
+<li><a href="#_developing_with_eclipse_and_domain_ontologies">24. Developing with Eclipse and Domain Ontologies</a></li>
+<li><a href="#_using_the_vital_graph_object_dsl">25. Using the Vital Graph Object DSL</a></li>
+<li><a href="#_using_json_schema_ontologies">26. Using JSON Schema Ontologies</a></li>
+<li><a href="#_using_groovy_domain_ontologies">27. Using Groovy Domain Ontologies</a></li>
+<li><a href="#_production_deployment_maven_continuous_integration">28. Production Deployment, Maven, Continuous Integration</a></li>
+<li><a href="#_app_level_access_and_admin_level_access">29. App-level Access and Admin-Level Access</a></li>
+<li><a href="#_composing_vital_service_queries">30. Composing Vital Service Queries</a></li>
+<li><a href="#_vital_service_base_implementations">31. Vital Service Base Implementations</a></li>
+<li><a href="#_import_and_export">32. Import and Export</a></li>
+<li><a href="#_serialized_data">33. Serialized Data</a></li>
+<li><a href="#_converting_from_csv_triple_files_to_vital_format">34. Converting from CSV, Triple Files to Vital format</a></li>
+<li><a href="#_vital_service_lucene_implementation">35. Vital Service Lucene Implementation</a></li>
+<li><a href="#_vital_service_triplestore_implementation">36. Vital Service Triplestore Implementation</a></li>
+<li><a href="#_vital_service_dynamodb_implementation">37. Vital Service DynamoDB Implementation</a></li>
+<li><a href="#_vital_service_mongodb_implementation">38. Vital Service MongoDB Implementation</a></li>
+<li><a href="#_vital_service_indexdb_implementation_combine_indexing_service_with_database_service">39. Vital Service IndexDB Implementation (Combine Indexing Service with Database Service)</a></li>
+<li><a href="#_vital_service_vital_prime_implementation">40. Vital Service Vital Prime Implementation</a></li>
+<li><a href="#_vital_service_spark_implementation">41. Vital Service Spark Implementation</a></li>
+<li><a href="#_vital_prime">42. Vital Prime</a></li>
+<li><a href="#_vital_prime_datascripts">43. Vital Prime Datascripts</a></li>
+<li><a href="#_vital_flows">44. Vital Flows</a></li>
+<li><a href="#_vital_flow_integrations">45. Vital Flow Integrations</a></li>
+<li><a href="#_aspen_datawarehouse">46. Aspen Datawarehouse</a></li>
+<li><a href="#_aspen_ai_on_spark">47. Aspen AI on Spark</a></li>
+<li><a href="#_vital_spark_integration">48. Vital-Spark Integration</a></li>
+<li><a href="#_using_machine_learning">49. Using Machine Learning</a></li>
+<li><a href="#_using_graph_analytics">50. Using Graph Analytics</a></li>
+<li><a href="#_using_inference">51. Using Inference</a></li>
+<li><a href="#_using_collaborative_filtering">52. Using Collaborative Filtering</a></li>
+<li><a href="#_using_natural_language_processing">53. Using Natural Language Processing</a></li>
+<li><a href="#_graph_visualization_with_cytoscape">54. Graph Visualization with Cytoscape</a></li>
+<li><a href="#_using_protege">55. Using Protege</a></li>
+<li><a href="#_vertx_modules">56. VertX Modules</a></li>
+<li><a href="#_r_vital_r_package">57. R-Vital R Package</a></li>
+<li><a href="#_managing_multiple_vital_home_locations">58. Managing multiple VITAL_HOME locations</a></li>
+<li><a href="#_managing_and_monitoring_vital_ai_components_in_production">59. Managing and Monitoring Vital AI components in Production</a></li>
+<li><a href="#_examples">60. Examples</a></li>
+<li><a href="#_additional_resources">61. Additional Resources</a></li>
+<li><a href="#_vital_ai_platform_components">62. Vital AI Platform Components</a></li>
+<li><a href="#_using_datascripts">63. Using DataScripts</a></li>
+<li><a href="#_using_vitalflows">64. Using VitalFlows</a></li>
+<li><a href="#_building_a_news_portal_app_with_the_vital_ai_platform_demo">65. Building a News Portal App with the Vital AI Platform (Demo)</a></li>
+<li><a href="#_using_natural_language_processing_with_the_vital_ai_platform">66. Using Natural Language Processing with the Vital AI Platform</a></li>
+<li><a href="#_using_machine_learning_with_the_vital_ai_platform">67. Using Machine Learning with the Vital AI Platform</a></li>
+<li><a href="#_using_hadoop_with_the_vital_ai_platform">68. Using Hadoop with the Vital AI Platform</a></li>
+<li><a href="#_using_graph_analysis_with_the_vital_ai_platform">69. Using Graph Analysis with the Vital AI Platform</a></li>
+<li><a href="#_using_semantic_inference_and_rules_with_the_vital_ai_platform">70. Using Semantic Inference and Rules with the Vital AI Platform</a></li>
+<li><a href="#_integrating_external_content_with_the_vital_ai_platform">71. Integrating external content with the Vital AI Platform</a></li>
+<li><a href="#_integrating_external_apis_with_the_vital_ai_platform">72. Integrating external APIs with the Vital AI Platform</a></li>
+<li><a href="#_managing_and_monitoring_the_vital_ai_platform">73. Managing and Monitoring the Vital AI Platform</a></li>
 </ul>
 </div>
 </div>
@@ -3347,10 +3406,364 @@ for(int i = 0 ; i &lt; entities.size(); i++) {
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_vital_ai_overview">15. Vital AI Overview</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_ai_ecosystem">16. Vital AI Ecosystem</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_vital_home_directory_and_environment_variable">17. The "VITAL_HOME" directory and environment variable</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ontology_versioning">18. Ontology Versioning</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git_integration">19. Git Integration</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_ai_application_architecture">20. Vital AI Application Architecture</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_ai_development_kit_vdk">21. Vital AI Development Kit (VDK)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_ai_ontologies">22. Vital AI Ontologies</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_developing_domain_ontologies">23. Developing Domain Ontologies</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_developing_with_eclipse_and_domain_ontologies">24. Developing with Eclipse and Domain Ontologies</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_vital_graph_object_dsl">25. Using the Vital Graph Object DSL</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_json_schema_ontologies">26. Using JSON Schema Ontologies</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_groovy_domain_ontologies">27. Using Groovy Domain Ontologies</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_production_deployment_maven_continuous_integration">28. Production Deployment, Maven, Continuous Integration</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_app_level_access_and_admin_level_access">29. App-level Access and Admin-Level Access</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_composing_vital_service_queries">30. Composing Vital Service Queries</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_base_implementations">31. Vital Service Base Implementations</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_import_and_export">32. Import and Export</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_serialized_data">33. Serialized Data</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_converting_from_csv_triple_files_to_vital_format">34. Converting from CSV, Triple Files to Vital format</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_lucene_implementation">35. Vital Service Lucene Implementation</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_triplestore_implementation">36. Vital Service Triplestore Implementation</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_dynamodb_implementation">37. Vital Service DynamoDB Implementation</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_mongodb_implementation">38. Vital Service MongoDB Implementation</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_indexdb_implementation_combine_indexing_service_with_database_service">39. Vital Service IndexDB Implementation (Combine Indexing Service with Database Service)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_vital_prime_implementation">40. Vital Service Vital Prime Implementation</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_service_spark_implementation">41. Vital Service Spark Implementation</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_prime">42. Vital Prime</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_prime_datascripts">43. Vital Prime Datascripts</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_flows">44. Vital Flows</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_flow_integrations">45. Vital Flow Integrations</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aspen_datawarehouse">46. Aspen Datawarehouse</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aspen_ai_on_spark">47. Aspen AI on Spark</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_spark_integration">48. Vital-Spark Integration</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_machine_learning">49. Using Machine Learning</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_graph_analytics">50. Using Graph Analytics</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_inference">51. Using Inference</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_collaborative_filtering">52. Using Collaborative Filtering</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_natural_language_processing">53. Using Natural Language Processing</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_graph_visualization_with_cytoscape">54. Graph Visualization with Cytoscape</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_protege">55. Using Protege</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vertx_modules">56. VertX Modules</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_r_vital_r_package">57. R-Vital R Package</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_multiple_vital_home_locations">58. Managing multiple VITAL_HOME locations</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_and_monitoring_vital_ai_components_in_production">59. Managing and Monitoring Vital AI components in Production</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples">60. Examples</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_resources">61. Additional Resources</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vital_ai_platform_components">62. Vital AI Platform Components</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_datascripts">63. Using DataScripts</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_vitalflows">64. Using VitalFlows</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_building_a_news_portal_app_with_the_vital_ai_platform_demo">65. Building a News Portal App with the Vital AI Platform (Demo)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_natural_language_processing_with_the_vital_ai_platform">66. Using Natural Language Processing with the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_machine_learning_with_the_vital_ai_platform">67. Using Machine Learning with the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_hadoop_with_the_vital_ai_platform">68. Using Hadoop with the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_graph_analysis_with_the_vital_ai_platform">69. Using Graph Analysis with the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_semantic_inference_and_rules_with_the_vital_ai_platform">70. Using Semantic Inference and Rules with the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integrating_external_content_with_the_vital_ai_platform">71. Integrating external content with the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integrating_external_apis_with_the_vital_ai_platform">72. Integrating external APIs with the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_and_monitoring_the_vital_ai_platform">73. Managing and Monitoring the Vital AI Platform</h2>
+<div class="sectionbody">
+
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-10 18:21:21 EDT
+Last updated 2015-09-24 14:28:55 EDT
 </div>
 </div>
 </body>
