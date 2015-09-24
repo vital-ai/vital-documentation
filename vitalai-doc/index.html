@@ -510,7 +510,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_download_the_vital_ai_development_kit">1.1. Download the Vital AI Development Kit</h3>
 <div class="paragraph">
-<p>After signing up for an account on the <a href="http://dashboard.vital.ai">vital.ai dashboard</a>,
+<p>After signing up for an account on the <a href="http://dashboard.vital.ai" target="http://dashboard.vital.ai">vital.ai dashboard</a>,
 subscribe to the Vital AI Development Kit (VDK) from the <em>Products</em> page. Under
 <em>My Products</em>, you will find downloads for a distribution of the VDK (tar.gz/zip),
 the VDK install script, the VDK uninstall script, VDK documentation, and a vital.ai
@@ -541,20 +541,28 @@ VDK distribution and the VDK install script.</p>
 </li>
 <li>
 <p>Render the VDK install script executable by entering:</p>
-<div class="literalblock">
-<div class="content">
-<pre>chmod u+x ./vdk-install-0.2.250.sh</pre>
-</div>
-</div>
 </li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">chmod u+x ./vdk-install-0.2.250.sh</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Install the VDK in your <em>VITAL_HOME</em> directory by entering:</p>
-<div class="literalblock">
-<div class="content">
-<pre>./vdk-install-0.2.250.sh $VITAL_HOME .</pre>
-</div>
-</div>
 </li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">./vdk-install-0.2.250.sh $VITAL_HOME .</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Place the downloaded license file into the vital-license directory within
 your <em>VITAL_HOME</em>.</p>
@@ -578,21 +586,25 @@ VDK uninstall script.</p>
 </li>
 <li>
 <p>Render the VDK uninstall script executable by entering:</p>
-<div class="literalblock">
-<div class="content">
-<pre>chmod u+x ./vdk-uninstall-0.2.250.sh</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Uninstall the VDK by entering:</p>
-<div class="literalblock">
-<div class="content">
-<pre>./vdk-uninstall-0.2.250.sh $VITAL_HOME .</pre>
-</div>
-</div>
 </li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">chmod u+x ./vdk-uninstall-0.2.250.sh</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Uninstall the VDK by entering:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">./vdk-uninstall-0.2.250.sh $VITAL_HOME .</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -612,10 +624,12 @@ VDK uninstall script.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">Usage: vitalsigns &lt;command&gt; [options]
-   where command is one of:
+
+where command is one of:
 [gitmergetool, upversion, generate, diff, status, verify, merge, mergestatus, downversion, gitenable,
 validateontology, version, gitdisable, removeindividuals, listindividuals, checkin, help, gitjarmerge,
 mergeindividuals, normalizeontology, purge, gitpostmerge]
+
 usage: vitalsigns generate [options]
  -j,--jar &lt;arg&gt;            (only groovy) optional output jar file path, by
                            default it will write domain jar at
@@ -631,27 +645,34 @@ usage: vitalsigns generate [options]
                            com.your-domain.your-app-name)
  -t,--target &lt;arg&gt;         output target: 'groovy' or 'json', default
                            'groovy'
+
 usage: vitalsigns version [options]
  -o,--ontology &lt;arg&gt;   OWL Domain Ontology File
+
 usage: vitalsigns status (no options)
  -q,--quick     quick - skip parsing ontologies
  -v,--verbose   print warnings and other messages
+
 usage: vitalsigns listindividuals [options]
  -o,--ontology &lt;arg&gt;   OWL Domain Ontology File
+
 usage: vitalsigns mergeindividuals [options]
  -i,--individuals &lt;arg&gt;   individuals ontology file path
  -o,--ontology &lt;arg&gt;      ontology file name in
                           $VITAL_HOME/domain-ontology/
+
 usage: vitalsigns removeindividuals [options]
  -i,--individuals &lt;arg&gt;   individuals ontology file path
  -o,--ontology &lt;arg&gt;      ontology file name in
                           $VITAL_HOME/domain-ontology/
+
 usage: vitalsigns diff [options]
  -h,--history &lt;arg&gt;   show the Nth prior version found in the archive -
                       used with single ont param only
  -o,--ont &lt;arg&gt;       exactly 1 or 2 such params required: ontology file
                       path, when just file name used it will look in
-                      $VITAL_HOME/domain-ontology/**
+                      $VITAL_HOME/domain-ontology/
+
 usage: vitalsigns merge [options]
  -m,--merging &lt;arg&gt;   merging ontology
  -o,--ont &lt;arg&gt;       input ontology
@@ -659,6 +680,7 @@ usage: vitalsigns normalizeontology [options]
  -cb,--commentsbefore   comments inserted before, after if flag not
                         specified
  -o,--ont &lt;arg&gt;         ontology (will be replaced)
+
 usage: vitalsigns validateontology [options]
  -o,--ont &lt;arg&gt;   input ontology
 usage: vitalsigns verify (no options)
@@ -667,23 +689,30 @@ usage: vitalsigns gitdisable (no options)
 usage: vitalsigns upversion [options]
  -o,--ont &lt;arg&gt;   input ontology, either file name or path to domain owl
                   in ($VITAL_HOME/domain-ontology/)
+
 usage: vitalsigns downversion [options]
  -o,--ont &lt;arg&gt;       input ontology, either file name or path to domain
                       owl in ($VITAL_HOME/domain-ontology/)
  -v,--version &lt;arg&gt;   optional version to be reverted to, n.n.n, latest
                       used if not specified
+
 usage: vitalsigns checkin [options]
  -o,--ont &lt;arg&gt;   external ontology file, must not be located in
                   $VITAL_HOME
+
 usage: vitalsigns purge [options]
  -a,--app &lt;arg&gt;   owl and jar files prefix
+
 usage: vitalsigns gitpostmerge (no options)
+
 usage: vitalsigns mergestatus (no options)
+
 usage: vitalsigns gitmergetool (options)
  -b,--base &lt;arg&gt;     base owl file path
  -l,--local &lt;arg&gt;    local owl file path
  -o,--output &lt;arg&gt;   output merged owl file path
  -r,--remote &lt;arg&gt;   remote owl file path
+
 usage: vitalsigns gitjarmerge (options)
  -b,--base &lt;arg&gt;     base jar file path
  -l,--local &lt;arg&gt;    local jar file path
@@ -799,33 +828,41 @@ usage: vitalsigns gitjarmerge (options)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">usage: vitaldatascript &lt;command&gt; [options] ...
+
 usage: vitaldatascript help (prints usage)
+
 usage: vitaldatascript listdatascripts [options]
  -p,--path &lt;arg&gt;   scripts base path: admin/* &lt;app&gt;/* or commons/admin/*
                    or commons/scripts/*
+
 usage: vitaldatascript getdatascript [options]
  -o,--output &lt;arg&gt;   optional output file to save the script body to
  -ow,--overwrite     overwrite output file if exists
  -p,--path &lt;arg&gt;     scripts base path: admin/&lt;script_name&gt;
                      &lt;app&gt;/&lt;script_name&gt; or commons/admin/&lt;script_name&gt; or
                      commons/scripts/&lt;script_name&gt;
+
 usage: vitaldatascript adddatascript [options]
  -f,--file &lt;arg&gt;   script input file path
  -p,--path &lt;arg&gt;   script path: admin/&lt;script_name&gt; &lt;app&gt;/&lt;script_name&gt; or
                    commons/admin/&lt;script_name&gt; or
                    commons/scripts/&lt;script_name&gt;
+
 usage: vitaldatascript removedatascript [options]
  -p,--path &lt;arg&gt;   script path: admin/&lt;script_name&gt; &lt;app&gt;/&lt;script_name&gt; or
                    commons/admin/&lt;script_name&gt; or
                    commons/scripts/&lt;script_name&gt;
+
 usage: vitaldatascript rundatascript [options]
  -i,--input &lt;arg&gt;   input params groovy file - must return a map of
                     parameters
  -p,--path &lt;arg&gt;    script path: admin/&lt;script_name&gt; &lt;app&gt;/&lt;script_name&gt;
                     or commons/admin/&lt;script_name&gt; or
                     commons/scripts/&lt;script_name&gt;
+
 usage: vitaldatascript listjobs [options]
  -j,--jobID &lt;arg&gt;   optional jobID used as a filter
+
 usage: vitaldatascript killjob [options]
  -j,--jobID &lt;arg&gt;   jobID to kill</code></pre>
 </div>
@@ -840,17 +877,23 @@ usage: vitaldatascript killjob [options]
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">usage: vitalftp &lt;command&gt; [options] ...
+
 usage: vitalftp help (prints usage)
+
 usage: vitalftp put [options]
  -f,--file &lt;arg&gt;   local file to upload
  -ow,--overwrite   overwrite remote file if exists
+
 usage: vitalftp get [options]
  -d,--directory &lt;arg&gt;   output directory to save the file
  -n,--name &lt;arg&gt;        remote file name
  -ow,--overwrite        overwrite the output file if exists
+
 usage: vitalftp ls (no options)
+
 usage: vitalftp del [options]
  -n,--name &lt;arg&gt;   remote file name
+
 usage: vitalftp purge (no options)</code></pre>
 </div>
 </div>
@@ -864,23 +907,31 @@ usage: vitalftp purge (no options)</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">usage: vitallucene &lt;command&gt; [options] ...
+
 usage: vitallucene help (prints usage)
+
 usage: vitallucene init [options]
  -f,--force            override existing directory
  -l,--location &lt;arg&gt;   either target directory or 'conf' value to use
                        service config
+
 usage: vitallucene listapps [options]
+
 usage: vitallucene addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
+
 usage: vitallucene removeapp [options]
  -a,--app &lt;arg&gt;   app ID
+
 usage: vitallucene listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
+
 usage: vitallucene removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
+
 usage: vitallucene addsegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -ro,--readOnly         read only
@@ -898,19 +949,26 @@ usage: vitallucene addsegment [options]
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">usage: vitalprime &lt;command&gt; [options] ...
+
 usage: vitalprime help (prints usage)
+
 usage: vitalprime listapps [options]
+
 usage: vitalprime addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
+
 usage: vitalprime removeapp [options]
  -a,--app &lt;arg&gt;   app ID
+
 usage: vitalprime listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
+
 usage: vitalprime removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
+
 usage: vitalprime addsegment [options]
  -a,--appID &lt;arg&gt;              app ID
  -p,--provisioningFile &lt;arg&gt;   optional  provisioning config file - used
@@ -921,25 +979,33 @@ usage: vitalprime addsegment [options]
  -t,--type &lt;arg&gt;               optional inner segment (endpoint) type,
                                required if prime hosts more than 1
                                endpoint
+
 usage: vitalprime verifyindexes (no options)
+
 usage: vitalprime rebuildindexes (no options)
+
 usage: vitalprime status (no options)
+
 usage: vitalprime shutdown (no options)
+
 usage: vitalprime get [options]
  -a,--appID &lt;arg&gt;    app ID
  -o,--output &lt;arg&gt;   optional output block file .vital[.gz], by default
                      prints to console
  -u,--uri &lt;arg&gt;      graph object URI
+
 usage: vitalprime update [options]
  -a,--appID &lt;arg&gt;     app ID
  -i,--input &lt;arg&gt;     input block file with single block and single graph
                       object .vital[.gz]
  -s,--segment &lt;arg&gt;   segment ID
+
 usage: vitalprime insert [options]
  -a,--appID &lt;arg&gt;     app ID
  -i,--input &lt;arg&gt;     input block file with single block and single graph
                       object .vital[.gz]
  -s,--segment &lt;arg&gt;   segment ID
+
 usage: vitalprime delete [options]
  -a,--appID &lt;arg&gt;   app ID
  -u,--uri &lt;arg&gt;     graph object URI</code></pre>
@@ -955,20 +1021,28 @@ usage: vitalprime delete [options]
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">usage: vitaldynamodb &lt;command&gt; [options] ...
+
 usage: vitaldynamodb help (prints usage)
+
 usage: vitaldynamodb init (no options)
+
 usage: vitaldynamodb listapps [options]
+
 usage: vitaldynamodb addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
+
 usage: vitaldynamodb removeapp [options]
  -a,--app &lt;arg&gt;   app ID
+
 usage: vitaldynamodb listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
+
 usage: vitaldynamodb removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
+
 usage: vitaldynamodb addsegment [options]
  -a,--appID &lt;arg&gt;              app ID
  -p,--provisioningFile &lt;arg&gt;   provisioning config file
@@ -986,20 +1060,28 @@ usage: vitaldynamodb addsegment [options]
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">usage: vitaltriplestore &lt;command&gt; [options] ...
+
 usage: vitaltriplestore help (prints usage)
+
 usage: vitaltriplestore listapps [options]
+
 usage: vitaltriplestore init
+
 usage: vitaltriplestore addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
+
 usage: vitaltriplestore removeapp [options]
  -a,--app &lt;arg&gt;   app ID
+
 usage: vitaltriplestore listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
+
 usage: vitaltriplestore removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
+
 usage: vitaltriplestore addsegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -ro,--readOnly         read only
@@ -1016,31 +1098,42 @@ usage: vitaltriplestore addsegment [options]
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">usage: vitalindexdb &lt;command&gt; [options] ...
+
 usage: vitalindexdb help (prints usage)
+
 usage: vitalindexdb listapps [options]
+
 usage: vitalindexdb init
  -f,--force   override existing directory
+
 usage: vitalindexdb addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
+
 usage: vitalindexdb removeapp [options]
  -a,--app &lt;arg&gt;   app ID
+
 usage: vitalindexdb listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
+
 usage: vitalindexdb removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
+
 usage: vitalindexdb addsegment [options]
  -a,--appID &lt;arg&gt;              app ID
  -p,--provisioningFile &lt;arg&gt;   (dynamodb database type only) provisioning
                                config file
  -ro,--readOnly                read only
  -s,--segmentID &lt;arg&gt;          segment ID
+
 usage: vitalindexdb reindexsegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -s,--segmentID &lt;arg&gt;   segment ID
+
 usage: vitalindexdb verifyindexes (no options)
+
 usage: vitalindexdb rebuildindexes (no options)</code></pre>
 </div>
 </div>
@@ -1050,8 +1143,8 @@ usage: vitalindexdb rebuildindexes (no options)</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>vital-switch</strong>
-Implementation found here: <a href="https://github.com/vital-ai/vital-scripts" class="bare">https://github.com/vital-ai/vital-scripts</a>
+<p><strong>vital-switch:</strong>
+Implementation found here: <a href="https://github.com/vital-ai/vital-scripts" target="https://github.com/vital-ai/vital-scripts">https://github.com/vital-ai/vital-scripts</a>
 Simple script to change a soft link for location of VITAL_HOME to make it easy to switch between multiple installations.</p>
 </li>
 </ul>
@@ -1091,9 +1184,9 @@ eliminating painful data transformations and a host of data integration issues.<
 <div class="sect2">
 <h3 id="_installing_vitalsigns">3.2. Installing VitalSigns</h3>
 <div class="paragraph">
-<p><a href="http://github.com/vital-ai/vital-documentation/wiki/Installing-VDK">Installing the Vital AI Development Kit (VDK)</a>, will enable you to use VitalSigns.
+<p><a href="http://github.com/vital-ai/vital-documentation/wiki/Installing-VDK" target="http://github.com/vital-ai/vital-documentation/wiki/Installing-VDK">Installing the Vital AI Development Kit (VDK)</a>, will enable you to use VitalSigns.
 Since VitalSigns commands are run from a Linux or Unix shell, Microsoft Windows
-users will also need to <a href="http://cygwin.com/install.html">install Cygwin</a>, a Unix-like environment and command-line
+users will also need to <a href="https://cygwin.com/install.html" target="https://cygwin.com/install.html">install Cygwin</a>, a Unix-like environment and command-line
 interface for Microsoft Windows.</p>
 </div>
 </div>
@@ -1925,8 +2018,7 @@ println instance.toRDF()</code></pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>A URI ( Uniform resource identifier ) is an identifier that is globally unique.  An example is:
-    <a href="http://vital.ai/ontology/vital/Person/123" class="bare">http://vital.ai/ontology/vital/Person/123</a></p>
+<p>A URI ( Uniform resource identifier ) is an identifier that is globally unique.  An example is: <a href="http://vital.ai/ontology/vital/Person/123" target="http://vital.ai/ontology/vital/Person/123">http://vital.ai/ontology/vital/Person/123</a></p>
 </div>
 <div class="ulist">
 <ul>
@@ -2736,7 +2828,8 @@ vital-core:hasMaxValueInclusive = &lt;ind2&gt;</code></pre>
 <p>The goal of this example will be to process text with some basic Natural Language Processing steps, and print out the results.</p>
 </div>
 <div class="paragraph">
-<p>(For those not in the know, see: <a href="http://en.wikipedia.org/wiki/Hello_world_program" class="bare">http://en.wikipedia.org/wiki/Hello_world_program</a> )</p>
+<p>(For those not in the know, see:
+<a href="http://en.wikipedia.org/wiki/Hello_world_program" target="http://en.wikipedia.org/wiki/Hello_world_program">http://en.wikipedia.org/wiki/Hello_world_program</a>)</p>
 </div>
 <div class="paragraph">
 <p><strong>The steps involved are:</strong></p>
@@ -3117,7 +3210,7 @@ for(int i = 0 ; i &lt; entities.size(); i++) {
 <p>Create a new grails application for the Dashboard</p>
 </li>
 <li>
-<p>Use a charting visualization widget to display data, such as: <a href="http://grails.org/plugin/google-visualization" class="bare">http://grails.org/plugin/google-visualization</a></p>
+<p>Use a charting visualization widget to display data, such as: <a href="http://grails.org/plugin/google-visualization" target="http://grails.org/plugin/google-visualization">http://grails.org/plugin/google-visualization</a></p>
 </li>
 <li>
 <p>Add stored procedures to the DataServer to return data collected in the data buckets to use in the charts</p>
