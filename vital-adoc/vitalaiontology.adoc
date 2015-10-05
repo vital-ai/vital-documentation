@@ -1,0 +1,28 @@
+== Vital AI Ontology
+
+Vital AI provides a base ontology which is used throughout the Vital AI Platform.  An application extends this ontology to create the classes and properties required for that specific application.
+
+The Vital AI Ontology is split into the "CORE" ontology and the main Vital AI Ontology.
+
+The Vital CORE ontology defines top level classes and properties.
+
+The top level CORE classes are:
+
+1. VITAL_Node
+1. VITAL_Edge
+1. VITAL_HyperNode
+1. VITAL_HyperEdge
+
+Each of the instances of these classes must have a unique URI.  Each of the instances of these classes may have any number of properties.
+
+image::nodesandedges.png[]
+
+The main Vital AI Ontology includes classes such as "VITAL_Document" and "VITAL_User" which may be used in a typical application.  These examples extend the VITAL_Node class.  Another example class in the main Vital AI Ontology is "VITAL_Likes" which extends the VITAL_Edge class.  Thus, a "like" relationship between a User and a Document can be modeled with an instance of the "VITAL_Likes" edge with the User as the source and the Document as the destination of this directed edge.
+
+The Vital OWL Ontology being edited in Protege:
+
+image::vitalowl_protege.png[]
+
+An application such as a movie recommendation application would create classes such as "Movie" which would extend VITAL_Node to model the data required for that application.
+
+The VitalSigns component uses the CORE and main ontology and the application-specific ontologies to map and bind data across the different platform components.

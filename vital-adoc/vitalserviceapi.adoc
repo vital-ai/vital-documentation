@@ -1,0 +1,137 @@
+== The Vital Service API
+
+:sectnums:
+
+=== Two available interfaces
+
+* Vital Service API: Primary interface, used within an "App"
+* Vital Service Admin API: Used for administrative functions, allows using "App" as a parameter
+
+=== Common Objects
+
+* GraphObject
+* Organization
+* App
+* Segment
+* EndpointType
+* VitalStatus
+* ResultList
+* URIProperty
+* List: form of a "container" of GraphObjects, which may be iterated over
+* Transaction
+* ServiceOperation: abstraction for a modification of data, including: insert, update, delete, import, export
+* VitalQuery: a query object; one of: VitalSelectQuery, VitalGraphQuery, VitalPathQuery
+* VitalPathQuery
+* VITAL_Event
+
+=== Vital Service API Calls
+
+* EndpointType getEndpointType()
+* Organization getOrganization()
+* App getApp()
+* String getDefaultSegmentName()
+* void setDefaultSegmentName(String defaultsegment)
+* VitalStatus validate()
+* VitalStatus ping()
+* VitalStatus close()
+* List listSegments()
+* URIProperty generateURI(Class<? extends GraphObject> clazz)
+* Transaction createTransaction()
+* VitalStatus commitTransaction(Transaction transaction)
+* VitalStatus rollbackTransaction(Transaction transaction)
+* List getTransactions()
+* VitalStatus setTransaction(Transaction transaction)
+* ResultList get(GraphContext graphContext, URIProperty uri)
+* ResultList get(GraphContext graphContext, URIProperty uri, boolean cache)
+* ResultList get(GraphContext graphContext, List uris)
+* ResultList get(GraphContext graphContext, List uris, boolean cache)
+* ResultList get(GraphContext graphContext, URIProperty uri, List containers)
+* ResultList get(GraphContext graphContext, List uris, List containers)
+* VitalStatus delete(URIProperty uri)
+* VitalStatus delete(List uris)
+* VitalStatus deleteObject(GraphObject object)
+* VitalStatus deleteObjects(List objects)
+* ResultList insert(VitalSegment targetSegment, GraphObject graphObject)
+* ResultList insert(VitalSegment targetSegment, List graphObjectsList)
+* ResultList save(VitalSegment targetSegment, GraphObject graphObject, boolean create)
+* ResultList save(VitalSegment targetSegment, List graphObjectsList, boolean create)
+* ResultList save(GraphObject graphObject)
+* ResultList save(List graphObjectsList)
+* VitalStatus doOperations(ServiceOperations operations)
+* ResultList callFunction(String function, Map arguments)
+* ResultList query(VitalQuery query)
+* ResultList queryLocal(VitalQuery query)
+* ResultList queryContainers(VitalQuery query, List containers)
+* ResultList getExpanded(URIProperty uri, boolean cache)
+* ResultList getExpanded(URIProperty uri, VitalPathQuery query, boolean cache)
+* VitalStatus deleteExpanded(URIProperty uri)
+* VitalStatus deleteExpandedObject(GraphObject object)
+* VitalStatus deleteExpanded(URIProperty uri, VitalPathQuery query)
+* VitalStatus deleteExpanded(List uris, VitalPathQuery query)
+* VitalStatus deleteExpandedObjects(List objects, VitalPathQuery query)
+* VitalStatus bulkImport(VitalSegment segment, InputStream inputStream)
+* VitalStatus bulkExport(VitalSegment segment, OutputStream outputStream)
+* VitalStatus sendEvent(VITAL_Event event, boolean waitForDelivery)
+* VitalStatus sendEvents(List events, boolean waitForDelivery)
+* VitalStatus uploadFile(URIProperty uri, String fileName, InputStream inputStream, boolean overwrite)
+* VitalStatus downloadFile(URIProperty uri, String fileName, OutputStream outputStream, boolean closeOutputStream)
+* VitalStatus fileExists(URIProperty uri, String fileName)
+* VitalStatus deleteFile(URIProperty uri, String fileName) 
+* ResultList listFiles(String filepath)
+
+=== Vital Service Admin API Calls
+
+* EndpointType getEndpointType()
+* Organization getOrganization()
+* VitalStatus validate()
+* VitalStatus ping()
+* VitalStatus close()
+* List listSegments(App app)
+* VitalSegment addSegment(App app, VitalSegment config, boolean createIfNotExists)
+* VitalStatus removeSegment(App app, VitalSegment segment, boolean deleteData)
+* List listApps()
+* VitalStatus addApp(App app)
+* VitalStatus removeApp(App app)
+* URIProperty generateURI(App app, Class<? extends GraphObject> clazz)
+* Transaction createTransaction()
+* VitalStatus commitTransaction(Transaction transaction)
+* VitalStatus rollbackTransaction(Transaction transaction)
+* List getTransactions()
+* VitalStatus setTransaction(Transaction transaction)
+* ResultList get(App app, GraphContext graphContext, URIProperty uri)
+* ResultList get(App app, GraphContext graphContext, URIProperty uri, boolean cache)
+* ResultList get(App app, GraphContext graphContext, List uris)
+* ResultList get(App app, GraphContext graphContext, List uris, boolean cache)
+* ResultList get(App app, GraphContext graphContext, URIProperty uri, List containers)
+* ResultList get(App app, GraphContext graphContext, List uris, List containers)
+* VitalStatus delete(App app, URIProperty uri)
+* VitalStatus delete(App app, List uris)
+* VitalStatus deleteObject(App app, GraphObject object)
+* VitalStatus deleteObjects(App app, List objects)
+* ResultList insert(App app, VitalSegment targetSegment, GraphObject graphObject)
+* ResultList insert(App app, VitalSegment targetSegment, List graphObjectsList)
+* ResultList save(App app, VitalSegment targetSegment, GraphObject graphObject, boolean create)
+* ResultList save(App app, VitalSegment targetSegment, List graphObjectsList, boolean create)
+* ResultList save(App app, GraphObject graphObject)
+* ResultList save(App app, List graphObjectsList)
+* VitalStatus doOperations(App app, ServiceOperations operations)
+* ResultList callFunction(App app, String function, Map arguments)
+* ResultList query(App app, VitalQuery query)
+* ResultList queryLocal(App app, VitalQuery query)
+* ResultList queryContainers(App app, VitalQuery query, List containers)
+* ResultList getExpanded(App app, URIProperty uri, boolean cache)
+* ResultList getExpanded(App app, URIProperty uri, VitalPathQuery query, boolean cache)
+* VitalStatus deleteExpanded(App app, URIProperty uri)
+* VitalStatus deleteExpandedObject(App app, GraphObject object)
+* VitalStatus deleteExpanded(App app, URIProperty uri, VitalPathQuery query)
+* VitalStatus deleteExpanded(App app, List uris, VitalPathQuery query)
+* VitalStatus deleteExpandedObjects(App app, List objects, VitalPathQuery query)
+* VitalStatus bulkImport(App app, VitalSegment segment, InputStream inputStream)
+* VitalStatus bulkExport(App app, VitalSegment segment, OutputStream outputStream)
+* VitalStatus sendEvent(App app, VITAL_Event event, boolean waitForDelivery)
+* VitalStatus sendEvents(App app, List events, boolean waitForDelivery)
+* VitalStatus uploadFile(App app, URIProperty uri, String fileName, InputStream inputStream, boolean overwrite)
+* VitalStatus downloadFile(App app, URIProperty uri, String fileName, OutputStream outputStream, boolean closeOutputStream)
+* VitalStatus fileExists(App app, URIProperty uri, String fileName)
+* VitalStatus deleteFile(App app, URIProperty uri, String fileName) 
+* ResultList listFiles(App app, String filepath)

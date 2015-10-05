@@ -1,0 +1,368 @@
+:linkattrs:
+== VitalService Query Builder
+
+Queries can be executed using the VitalService API, with results returned.  The queries run on the configured VitalService endpoint, such as Vital Prime, an RDF Triplestore, DynamoDB, or other database.
+
+The most convenient way to compose a query is using the Query Builder framework.
+
+This page describes using the Builder to compose and execute a query, and process the results.
+
+:sectnums:
+
+=== Concepts
+
+* *Graph*
+
+A graph is a collection of data which is composed of objects ("nodes" or "vertices") which are connected by links ("edges").
+
+* *Graph Objects*
+
+VitalService defines four major types of graph objects: Nodes, Edges, HyperNodes, and HyperEdges.  Edges connect a node with another node and are directed: node1 --edge--> node2.  A hyperedge may connect any two elements and is also directed: node1--hyperdge-->edge1 or node1--hyperedge-->hypernode.  HyperNodes and HyperEdges are used to represent "meta" information, such as an annotation on another object.  Most data is represented with nodes and edges.
+  
+* *URIs*
+
+A URI ( Uniform resource identifier ) is an identifier that is globally unique.  An example is: http://vital.ai/ontology/vital/Person/123[http://vital.ai/ontology/vital/Person/123, window="http://vital.ai/ontology/vital/Person/123"]
+
+* *Properties*
+
+A graph object may contain any number of properties consisting of name/value pairs.  Each property has a datatype, such as "String", "Date", or "Integer".  An example would be a string property with name "hasName" with the value of "John".
+
+* *Classes*
+
+A Graph Object belongs to a class (or more than one class) which defines its meaning.  An example would be "Person" which would be a class to represent all Graph Objects that refer to a Person.  A class has associated properties, such as a Person having a "name" and a "birthday".
+
+* *Graph Query*
+
+A graph query is a query to find a subset of a graph that means specific criteria.  For instance, if you have a graph of Person objects linked to Email objects, connected by "Sent" and "Received" edges, you could query for the graph of all messages in the last 10 days, which would return results such as:
+
+Person1 --Sent--> Message1 --Received--> Person2
+ 
+You could further constraint the query with additional criteria, such as querying for all Messages received on a Person's birthday. 
+
+* *ARC*
+
+An ARC is part of a graph query which represents hopping from one Graph Object to the next by transitioning over an Edge (or HyperEdge).  In the previous example of Email Messages, there were two hops:  from Person1 to Message1, and from Message1 to Person2.
+
+This more formally is represented by:
+
+
+[source, groovy]
+ARC { 
+node_constraint { Person }
+ARC {
+edge_constraint{ Edge_Sent }
+node_constraint { Message }
+ARC {
+node_constraint { Person }  
+edge_constraint { Edge_Received }
+}
+}
+}
+
+* *Provided Variables*
+
+An ARC may "provide" a value which may be constrained in another part of the query.
+    Continuing the previous example, the "birthday" value from Person2 can be provided, and this provides a constraint on the timestamp of the Email messages, and we only match Email messages sent on the receivers birthday.
+
+[source, groovy]
+ARC { 
+node_constraint { Person }
+ARC {
+edge_constraint{ Edge_Sent }
+node_constraint { Message }
+node_provides { "tstamp = timestamp" }
+constraint { "?tstamp = ?bday" }
+ARC {
+node_constraint { Person } 
+node_provides { "bday = birthday" }
+edge_constraint { Edge_Received }
+}
+}
+}
+
+* *Bound Names*
+
+In our results, we may wish to associated part of the graph with a name, so that we can easily interpret the results. Adding this to the example yields:
+
+[source, groovy]
+ARC { 
+node_constraint { Person }
+node_bind { "person-uri" }
+ARC {
+edge_constraint{ Edge_Sent }
+edge_bind { "sent-edge-uri" }
+node_constraint { Message }
+node_provides { "tstamp = timestamp" }
+node_bind { "message-uri" }
+constraint { "?tstamp = ?bday" }
+ARC {
+node_constraint { Person } 
+node_provides { "bday = birthday" }
+node_bind { "birthday-person-uri" }
+edge_constraint { Edge_Received }
+edge_bind { "received-edge-uri" }
+}
+}
+}
+        
+        
+=== Basic Structure
+
+Queries are composed directly in code using query structures that resemble query languages such as SQL and SPARQL.
+
+By being directly in code, the elements of the query can be checked for syntax and proper type, catching many mistakes and allowing quick query composition.  Additionally, elements of the query can be auto-suggested in your development IDE, also speeding query composition.
+
+As example, the constraint:
+
+[source, groovy]
+constraint { Person.props().name.equalTo("John" ) }
+					
+produces a query constraint requiring that the "name" property is equal to the value "John".
+
+The "name" property can be auto-suggested as it's associated with the "Person" class.  Since "name" is a String property, the comparators for Strings can be auto-suggested, such as equalTo or "contains".
+
+
+=== Property Types
+
+* Boolean
+* Date
+* Double
+* Float
+* GeoLocation: a longitude and latitude pair
+* Integer
+* Long
+* String
+* URI
+* MultiValue: contains a set of values
+* Other: generic container of a value
+
+==== Comparators
+
+* equalTo: has the identical value
+* notEqualTo: does not have the identical value
+* lessThan
+* lessThanEqualTo
+* greaterThan
+* greaterThanEqualTo
+* contains: contains this string
+* contains: contains this value for a multi-value property
+* contains_i: contains this string, ignoring the case
+* notContains: does not contain this string
+* notContains: does not contain this value for a multi-value property
+* notContains_i: does not contain this string, ignoring case
+* exists: tests if a value for the named property exists
+* notExists: tests if a value for the named property does not exist
+* before: used with Dates, synonym for lessThan
+* after: used with Dates, synonym for greaterThan
+* GeoLocation comparators to be added
+* oneOf: used with a list of items, equivalent to an OR of equalTo comparators
+* noneOf: used with a list of items, equivalent to an AND of notEqualTo comparators
+
+=== Parameters: Value Statements
+
+* value
+
+Parameters can be either single valued or multi-valued.  For single values parameters like "limit", if it is declared more than once, then the last value declared is taken.  For multi-valued parameters, additional declarations add to the set of values.
+
+
+=== Available Parameters
+
+* segment: used to specify the data segments the query is applied to
+* limit: used to limit the number of results returned
+* offset: used to skip an initial offset of results
+* direction: forward|reverse - used to specify if the arc is to be treated "source" --> "destination" or the reverse.
+* parent: removing ambiguity in hyperarcs which element the parent is (connector or target)
+* target: removing ambiguity in hyperarcs what type the target is (node, edge, hyperedge, hypernode)
+* optional: use to specify that this ARC/HYPER_ARC is optional
+
+=== Constraints
+
+* Property Constraints
+* Type Constraints
+* Provided Variable Constraints: constrains a named variable using a value or other named variable
+
+=== Provides Statements
+
+* provides: associates a property with a named variable, which may be constrained in parent containers
+* node_provides
+* edge_provides
+* hypernode_provides
+* hyperedge_provides
+
+=== Constraint Containers
+
+* constraint
+* node_constraint
+* edge_constraint
+* hypernode_constraint
+* hyperedge_constraint
+
+
+=== Boolean Containers
+
+* AND
+* OR
+
+=== Top Level Containers
+
+* SELECT
+* GRAPH
+
+=== ARC Containers
+
+* ARC
+* HYPER_ARC
+* ARC_AND
+* ARC_OR
+* HYPERARC_AND
+* HYPERARC_OR
+
+
+=== Constraint Context
+
+* target: removes ambiguity in HYPER ARCS to indicate that the enclosed provides/constraint applies to the target
+* connector: removes ambiguity in HYPER ARCS to indicate that the enclosed provides/constraint applies to the connector
+* source: reserved to refer to the enclosed source
+
+=== Binding Names to Results
+
+* node_bind { "name" }: binds "name" to the URI of the node of the ARC
+* edge_bind { "name" }: binds "name" to the URI of the edge of the ARC
+* connector { bind { "name" } }: binds "name" to the URI of the connector of the ARC/HYPER_ARC
+* target { bind { "name" } }: bind "name" to the URI of the target of the ARC/HYPER_ARC
+
+
+
+=== Select Queries
+
+
+Example:
+
+[source, groovy]
+SELECT {
+value limit: 100
+	value offset: 0
+	value segments: ["mydata"]
+constraint { Person.class }
+constraint { Person.props().name.equalTo("John" ) }
+}
+
+=== Results
+
+Results are returned in a ResultList containing GraphObjects.
+
+=== Graph Queries
+
+Example:
+
+Given a set of Email messages with links to senders and receivers, find all messages sent by "john@example.org", excluding those he sent to himself.
+
+[source, groovy]
+GRAPH {
+    value segments: ["mydata"]
+ARC {
+          node_constraint { Email.class }
+          constraint { "?person1 != ?person2" }
+          ARC_AND {
+              ARC {
+                edge_constraint { Edge_hasSender.class }
+                node_constraint {Person.props().emailAddress.equalTo("john@example.org")
+                node_constraint { Person.class }
+                node_provides { "person1 = URI" }   
+             }
+              ARC {        
+                edge_constraint { Edge_hasRecipient.class }
+                node_constraint { Person.class }
+                node_provides { "person2 = URI" } 
+             }
+          }
+        } 
+    }
+
+=== Results
+
+Results are returned in a ResultList containing GraphMatch objects, each of which contains a set of URIs of the matching graph elements.
+
+For the above example, each result includes:
+
+* URI of an email message
+* URI of the edge connecting the email to a sender
+* URI of the sender, which would the the URI of the Person with email addresss "john@example.org"
+* URI of the edge connecting the email to a recipient
+* URI of the recipient Person, which is enforced to be not the same as the sender
+
+=== Aggregation Queries
+
+DISTINCT, COUNT, SUM, AVERAGE, FIRST, LAST, COUNT+DISTINCT, FIRST+DISTINCT, LAST+DISTINCT
+
+=== Native Queries
+
+A query specific to the endpoint implementation can be passed through directly.  This includes Hive-SQL (Spark-SQL) and SPARQL queries.  This is used principally for legacy or highly optimized queries.  The results returned are objects containing the raw results.
+
+=== Builder in Groovy, Java, Scala, and Spark
+
+The VitalService query builder uses Groovy closures to compose queries.  In groovy source code, these are parsed directly.
+
+In Java and Scala code, the same identical queries can be used, but passed to the builder as a String.  The same should be true for any other JVM language.
+
+In Scala (and Spark), this looks like:
+
+[source, groovy]
+    val email = "someone@example.org"
+    def gQuery = builder.queryString ( 
+        s"""
+        GRAPH { 
+        value segments: ["mydata"]
+        ARC {
+           node_constraint { Email.class }
+           ARC {
+              node_constraint { Person.props().emailAddress.equalTo("${email}") }
+           }  
+         }
+        } 
+        """         
+       ).toQuery()
+
+Note the query is surrounded by the multiline indicator (""") and is preceded by "s" which indicates string substitution of variables -- in this case the variable "email".  Thus, even as a string, the query can be a template with values passed in as needed.
+
+
+=== Importing Domain Classes in Java, Scala, and Spark
+
+In a constraint such as:
+
+[source, groovy]
+node_constraint { Email.class }
+
+The domain class of "Email" must be resolved to an implementation class.  In Groovy code, these classes are found via the import statements of the enclosing class.  When the query is passed in as a String, import statements must be included to allow the resolution of these classes.  
+
+If our domain classes are found within the package: com.mycompany.domain.*, then this import should be added into the query:
+
+        def gQuery = builder.queryString ( 
+         s"""
+         // import statement at the head of the query
+         import com.mycompany.domain.*
+         // alternatively, individual imports can be stated, such as:
+         // import com.mycompany.domain.Person
+         // import com.mycompany.domain.Email
+         GRAPH {
+         value segments: ["mydata"]
+         ARC {
+            node_constraint { Email.class }
+            ARC {
+               node_constraint { Person.props().emailAddress.equalTo("${email}") }
+            }  
+          }
+         } 
+        """         
+       ).toQuery()
+
+This allows the class "Email" and class "Person" to be found within the package "com.mycompany.domain" and resolved to: com.mycompany.domain.Email and com.mycompany.domain.Person.
+
+=== Supported Endpoints
+
+* Triplestores
+    ** Allegrograph
+* SOLR/Lucene
+* Amazon DynamoDB
+* Spark
+* MongoDB (In progress)

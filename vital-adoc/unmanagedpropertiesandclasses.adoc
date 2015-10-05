@@ -1,0 +1,11 @@
+== Unmanaged Properties and Classes
+
+A base Vital data object may be used to represent an arbitrary instance of a class and set of properties.
+
+[source,groovy]
+def instance = new VITAL_Node()
+instance.type = ["http://xmlns.com/foaf/0.1/Person"]
+VitalSigns.addExternalNamespace("foaf", "http://xmlns.com/foaf/0.1/")
+instance."foaf:name" = "Marc Hadfield"^xsd.string
+instance."foaf:homepage" = "http://www.hadfield.org"^xsd.string
+println instance.toRDF()

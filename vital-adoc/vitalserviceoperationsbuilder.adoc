@@ -1,0 +1,7 @@
+== Vital Service Operations Builder
+
+The builder can be used to build sets of operations to process by VitalService.  These operations are: INSERT, UPDATE, DELETE
+
+* INSERT
+* UPDATE
+* DELETE

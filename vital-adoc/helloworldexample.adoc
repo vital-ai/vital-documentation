@@ -1,0 +1,154 @@
+:linkattrs:
+== Hello World Example 
+:sectnums:
+Simple example use of the Vital AI Client.
+
+The goal of this example will be to process text with some basic Natural Language Processing steps, and print out the results.
+
+(For those not in the know, see:
+http://en.wikipedia.org/wiki/Hello_world_program[http://en.wikipedia.org/wiki/Hello_world_program, window="http://en.wikipedia.org/wiki/Hello_world_program"])
+
+*The steps involved are:*
+
+1. Add a new class to the data model for your new entity
+1. Run VitalSigns to create data model bindings
+1. Add a simple dictionary-based NLP extraction rule to the NLP processing step to recognize your new entity
+1. Deploy the Vital AI Platform including the NLP Processor using the new extraction rule
+1. Start a new project in your favorite IDE
+1. Add the Vital AI Client libraries to your project
+1. Add a new "main" function which calls the Vital Service, passes in some text, and prints out the results
+1. Done!
+
+A detailed description follows:
+
+=== Add a new class to the data model for your new entity
+
+Use an ontology editor such as Protege to create a new OWL ontology extending the Vital base OWL ontology.  Using the editor, add a new class called "BrandEntity" extending the base "Node" class.
+
+Using Protege to edit the Vital ontology:
+
+image::protege_vitalontology.png[]
+  
+
+=== Run VitalSigns to create data model bindings
+
+The VitalSigns script will create a jar containing your OWL ontology which provides domain objects that you can use throughout your application.  VitalSigns uses the ontology dynamically to create domain objects with dynamic sets of properties.  
+
+For example, by creating the "BrandEntity" class above, and assuming a "Product" class and a "Makes" Edge, in your code you can do:
+
+[source, groovy]
+
+BrandEntity b = new BrandEntity();
+b.name = "my cool brand name";
+Product p = new Product();
+p.name = "cool shirt";
+// this creates a new edge linking the BrandEntity instance b with the Product instance p
+b.makes.p; 
+
+
+Depending on the settings of the VitalService, changes to objects like "b" (an instance of the BrandEntity class) will be written immediately to the database, or flushed when an update (transaction) is called.  For performance, it's typically the latter case.  Also, VitalService would be configured to autogenerate URIs (unique identifiers) for new instances, or URIs could be explicitly set, as in the code below in (7).  The property "name" is defined in the OWL ontology and dynamically validated.
+
+=== Add a simple dictionary-based NLP extraction rule to the NLP processing step to recognize your new entity
+
+This example extraction script uses a case-sensitive dictionary (list of names) to tag brand names found in text.  It uses noun phrases to help find them (i.e. a brand name in text will tend to be a noun phrase or part of a bigger noun phrase).  A more advanced version would use additional techniques, such as machine learning, to identify such names.  This is a pretty good start, and is often good enough for many uses, especially if you have a pretty good dictionary and the names are pretty unambiguous.
+
+Add the extraction script:
+
+[source, groovy]
+ // Imported by the entity class resolution script
+ // Define package prefix
+defSpanProp package_demo:'ai.vital.demoapp' = : [ ... ] ;
+// This requires noun phrases
+require 'npchunks'; 
+// This provides our new entity type 
+provide 'ai.vital.demoapp.BrandEntity' ;  
+// This imports our new case-sensitive dictionary and uses it to tag names with BrandEntity
+defSpanType 'demo:BrandEntity' =~ trie "fashion_brands.txt" ; 
+// This declares our new entity tag
+declareSpanType 'demo:BrandEntity' ;  
+// This defines the name property of our entity from the value found in the text
+defSpanType 'demo:BrandEntity#name' = 'demo:BrandEntity' : [ any+ ]; 
+
+
+Example Dictionary file: fashion_brands.txt
+
+[source, groovy]
+Hello World
+Armani Exchange
+Ramosport
+ZipperGirl
+Elaine Klimaszewski
+Cosa Nostra
+Wet Seal, Inc.
+Rocawear
+Mr. Song Millinery
+Michael Bastian
+Kirribilla
+Heatherette
+Traver Rains
+Abaete
+Anait Bian
+ADAM
+Andrew Gn Designs
+Nina Ricci
+Olivier Theyskens
+Marc Jacobs
+...
+
+
+Modify the configuration of the NLP ProcessServer to include it.
+
+
+=== Deploy the Vital AI Platform including the NLP Processor using the new extraction rule
+
+Start ActiveMQ.
+Start the NLP Flow Server.
+Start the Prime Server.
+
+=== Start a new project in your favorite IDE
+
+Use any IDE such as Eclipse or Netbeans and create a new Groovy project.
+
+
+=== Add the Vital AI Client libraries to your project
+
+Add the Vital AI Groovy Client jars to your project, including the dependent jars.
+
+
+=== Add a new "main" function which calls the Vital Service, passes in some text, and prints out the results
+
+[source, groovy]
+
+String endpoint = "URL of Vital Service Endpoint";
+String appID = "demo";  // identifier for this application
+String title = "title of content";
+String content = "I love Hello World brand products!";
+String url = "url of the content";
+// Connect to VitalService endpoint
+VitalService service = new VitalServiceImpl(endpoint);
+// Generate a unique identifier for my new content
+String uri = generateURI(appID, url, title);             
+// Document is a class from the Demo App data model extending the Vital "Node" class
+Document document = new Document();
+document.URI = uri;
+document.title = title;
+document.body = content;             
+Document doc = null;            
+ResultSet resultSet = null;
+// Process the document using a ProcessFlow named "nlp_process"                      
+resultSet = service.callFunction("nlp_process", document);
+// Check the results back -- should be one document in the results                      
+for(Document _doc : resultSet.iterator(Document.class) ) {
+        if(doc != null) { throw new VitalServiceException("Expected exactly 1 result!"); }
+                doc = _doc;
+}
+// Get the entities extracted in the results
+List entities = doc.getEntities();  // this follows the "hasEntity" edge to return a collection of objects                              
+// Print them out!                                    
+for(int i = 0 ; i < entities.size(); i++) {
+        Entity entity = entities.get(i);        
+        println((i+1) + " " + entity.name + "\ttype: " + entity.category + "\trelevance: " + entity.relevance + "!");
+}
+
+
+*Done!*

@@ -1,0 +1,60 @@
+:linkattrs:
+== Creating a Dashboard for the Vital AI Platform
+
+:sectnums:
+
+The previous example provides a Grails News Portal application, which is useful as a "starter" application using the Vital AI Platform.
+
+To monitor the activity on the Grails News Portal, we need a dashboard application.  This ultimately would be used to help tune the algorithms driving the activity on the site, but for this example we will simply monitor the data collected in the News Portal.
+
+The full source of this example is available to build a "starter" dashboard of your application.
+
+The data collected in the News Portal includes the "views" of each article -- essentially the "clicks" on URLs and the counts of Topics and Entities that occur in processed content.  We'll also collect some additional information such as the number of articles processed and the number of queries to our server.  We also have some of the calculated values used in the News Portal, such as the top and trending topics, entities, and articles.
+
+=== Steps to create the Grails News Dashboard
+
+1. Deploy the Grails News Portal as per the previous example
+
+1. Create a new grails application for the Dashboard
+
+1. Use a charting visualization widget to display data, such as: http://grails.org/plugin/google-visualization[http://grails.org/plugin/google-visualization, window="http://grails.org/plugin/google-visualization"]
+
+1. Add stored procedures to the DataServer to return data collected in the data buckets to use in the charts
+
+1. Edit the configuration of the DataServer to collect additional information, such as the number of queries to the server
+
+1. Create views and controllers for the dashboard application for displaying the chart and handling a drop-down to select a chart to view
+
+1. Use the VitalService API to call the stored procedures to return data
+
+1. Use the VitalService API to get the details about data objects, such as articles for display
+
+1. Within the grails application, transform the results into the expected format used by the chart (JSON)
+
+1. Done!
+
+Below are screenshots from the resulting application.
+
+*Total views of content in the application:*
+
+image::totalviewsofcontent.png[]
+
+*The total queries to the server by the application:*
+
+image::totalqueriesbyapp.png[]
+
+*The views on a particular article in the application:*
+
+image::viewsonparticulararticle.png[]
+
+*The views in the topic Politics:*
+
+image::viewsintopicpolitics.png[]
+
+*The top topics in the application:*
+
+image::toptopicsinapp.png[]
+
+*The trending entities in the application:*
+
+image::trendingentitiesinapp.png[]

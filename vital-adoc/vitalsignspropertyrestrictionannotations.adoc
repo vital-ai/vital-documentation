@@ -1,0 +1,53 @@
+== VitalSigns Property Restriction Annotations
+
+:sectnums:
+
+=== GraphObject Validation
+
+A GraphObject may be validated by calling:
+
+[source, groovy]
+graphobject.validate()
+
+This returns an instance of VitalStatus which includes the status: OK or INVALID
+
+If INVALID, the status object includes a map of fields to errors.
+
+
+The VitalSigns config file may contain an entry for:
+
+[source, groovy]
+enforceConstraints = true
+
+If set to "true", the constraints will be enforced when property values are set, and will throw an exception if a value is invalid.
+
+=== Annotations
+
+* hasMaxValueExclusive
+* hasMaxValueInclusive
+* hasMinValueExclusive
+* hasMinValueInclusive
+
+values: literal or an individual of type vital-core:RestrictionAnnotationValue
+
+given a class Person and a property hasAge, to define valid values of hasAge to be:
+
+[source, groovy]
+0 < hasAge <= 120,
+
+create 2 individuals of vital-core:RestrictionAnnotationValue:
+
+[source, groovy]
+ind1   hasRestrictionValue = 0
+ind2   hasRestrictionValue = 120
+
+annotate both of these with:
+
+[source, groovy]
+vital-core:hasRestrictionClasses=Person
+
+then you annotate hasAge property  with
+
+[source, groovy]    
+vital-core:hasMinValueExclusive = <ind1>
+vital-core:hasMaxValueInclusive = <ind2>

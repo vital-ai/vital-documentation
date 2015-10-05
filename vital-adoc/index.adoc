@@ -1,0 +1,95 @@
+:toc-position: left
+
+
+[width="100%"]
+= Vital AI Documentation
+
+:sectnums:
+
+include::installingvdk.adoc[]
+
+include::Commandlinequickreference.adoc[]
+
+include::usingvitalsigns.adoc[]
+
+include::Managedpropertiesandclasses.adoc[]
+
+include::unmanagedpropertiesandclasses.adoc[]
+
+include::vitalserviceapi.adoc[]
+
+include::vitalservicequerybuilder.adoc[]
+
+include::vitalserviceoperationsbuilder.adoc[]
+
+include::vitalsignspropertyrestrictionannotations.adoc[]
+
+include::vitalplatformoverview.adoc[]
+
+include::helloworldexample.adoc[]
+
+include::creatingapplication.adoc[]
+
+include::creatingdashboard.adoc[]
+
+include::vitalaiontology.adoc[]
+
+== Vital AI Overview
+== Vital AI Ecosystem
+== The "VITAL_HOME" directory and environment variable
+== Ontology Versioning
+== Git Integration
+== Vital AI Application Architecture
+== Vital AI Development Kit (VDK)
+== Vital AI Ontologies
+== Developing Domain Ontologies 
+== Developing with Eclipse and Domain Ontologies 
+== Using the Vital Graph Object DSL
+== Using JSON Schema Ontologies
+== Using Groovy Domain Ontologies
+== Production Deployment, Maven, Continuous Integration
+== App-level Access and Admin-Level Access
+== Composing Vital Service Queries
+== Vital Service Base Implementations
+== Import and Export
+== Serialized Data
+== Converting from CSV, Triple Files to Vital format
+== Vital Service Lucene Implementation
+== Vital Service Triplestore Implementation
+== Vital Service DynamoDB Implementation
+== Vital Service MongoDB Implementation
+== Vital Service IndexDB Implementation (Combine Indexing Service with Database Service)
+== Vital Service Vital Prime Implementation
+== Vital Service Spark Implementation
+== Vital Prime
+== Vital Prime Datascripts
+== Vital Flows
+== Vital Flow Integrations
+== Aspen Datawarehouse
+== Aspen AI on Spark
+== Vital-Spark Integration
+== Using Machine Learning
+== Using Graph Analytics
+== Using Inference
+== Using Collaborative Filtering
+== Using Natural Language Processing
+== Graph Visualization with Cytoscape
+== Using Protege
+== VertX Modules
+== R-Vital R Package
+== Managing multiple VITAL_HOME locations
+== Managing and Monitoring Vital AI components in Production
+== Examples
+== Additional Resources
+== Vital AI Platform Components
+== Using DataScripts
+== Using VitalFlows
+== Building a News Portal App with the Vital AI Platform (Demo)
+== Using Natural Language Processing with the Vital AI Platform
+== Using Machine Learning with the Vital AI Platform
+== Using Hadoop with the Vital AI Platform
+== Using Graph Analysis with the Vital AI Platform
+== Using Semantic Inference and Rules with the Vital AI Platform
+== Integrating external content with the Vital AI Platform
+== Integrating external APIs with the Vital AI Platform
+== Managing and Monitoring the Vital AI Platform

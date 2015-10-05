@@ -1,0 +1,23 @@
+== Vital AI Platform Overview
+
+The Vital AI Platform addresses one of the most problematic issues with using Big Data and Semantic Software — all the developer time is used in simply integrating and maintaining the components, and no time is left to truly make use of the technology to provide additional value.
+
+The Vital AI Platform integrates Big Data and Semantic components together into a seamless framework allowing these components to be used "out of the box" and freeing up developer time to focus on what's truly important in an application — providing value to the user.
+
+Modules supporting different types of data analysis such as machine learning, natural language processing, and rule engines can be added into the application at any time without disrupting the application architecture or injecting new scaling problems.
+
+The Vital AI Platform is divided into three primary layers:
+
+* VitalPrime
+* VitalFlows
+* Hadoop
+
+An application typically interacts with the Vital AI Platform using a REST or Queue API. Client APIs are used within the application to access the platform. Client APIs are available in Groovy and Java, and other languages are easy to add.
+
+The VitalPrime Server provides data and functionality requires by the application in "real time". VitalPrime provides access to an in-memory cache and various index and data repositories, including MySQL, Amazon DynamoDB, Voldemort, Allegrograph, 4Store, and HBase. The cache includes real-time activity data such as "views" on content or other "click" data. VitalPrime also provides a stored procedure mechanism using scripts called DataScripts for quick calculations — thus "trend" information could be calculated using data within the activity cache.
+
+VitalFlows provide data analysis in "near real time". VitalFlows use work queues and workers to process data in a scalable way. A VitalFlow could be used such cases as (1) processing content to extract entity names, (2) processing a "Movie" object to categorize it into a genre, (3) analyzing part of a social graph to find important influencers, or (4) interacting with an external API such as Facebook to acquire data. VitalFlows can be used in "real time" but it's best to use them when the data will be stored, cached, and presented to users at a later time.
+
+Hadoop is for long term storage of data and for offline / batch data analysis. As example, Hadoop could be used to store all "Like" activity in an application. This data could be used by machine learning techniques to produce a recommendation model to recommend content to users. This model can then be used in "real time" in VitalPrime or in a VitalFlow to make ongoing recommendations, with a new model produced in Hadoop every day in a batch process.
+
+Throughout the platform a common data model is used, easing data integration issues. The data bindings are created with a Vital AI Platform component called VitalSigns.

@@ -1,0 +1,23 @@
+== Managed Properties and Classes
+
+VitalSigns turns classes and properties defined in OWL into data objects available in the JVM.
+
+Given a class hierarchy of animals, with set of properties in a hierarchy, we can do:
+
+[source,groovy]
+def cat = new Cat().generateURI()
+def dog = new Dog().generateURI()
+def animal = new Animal().generateURI()
+def mammal = new Mammal().generateURI()
+// super/sub classes
+assert cat.isSubTypeOf(Animal.class) == true
+assert cat.isSubTypeOf(Dog.class) == false
+assert animal.isSuperTypeOf(Cat.class) == true
+// super/sub properties
+cat.length = 18.0
+// property types
+// traits
+mammal = mammal.addType(Cat.class)
+assert mammal.isaType(cat) == true
+mammal = mammal.removeType(cat)
+assert mammal.isaType(cat) == false

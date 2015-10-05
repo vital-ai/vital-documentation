@@ -1,0 +1,277 @@
+== Using VitalSigns
+
+:sectnums:
+:linkattrs:
+=== VitalSigns Overview
+
+VitalSigns is a component of the Vital AI Platform. VitalSigns allows a data model  
+to be defined in an ontology using OWL and creates bindings for the data model in  
+the various components of the Vital AI Platform. This allows the mobile or web  
+application developer to be using the same data model as the data scientist running  
+jobs in Hadoop. The data model is seamlessly used throughout the application,   
+eliminating painful data transformations and a host of data integration issues.
+
+=== Installing VitalSigns
+http://github.com/vital-ai/vital-documentation/wiki/Installing-VDK[Installing the Vital AI Development Kit (VDK), window="http://github.com/vital-ai/vital-documentation/wiki/Installing-VDK"], will enable you to use VitalSigns.  
+Since VitalSigns commands are run from a Linux or Unix shell, Microsoft Windows   
+users will also need to https://cygwin.com/install.html[install Cygwin, window="https://cygwin.com/install.html"], a Unix-like environment and command-line  
+interface for Microsoft Windows.
+
+=== VitalSigns Commands
+
+*General Usage*
+
+Vital Signs commands have the following usage pattern:
+
+[source, groovy]
+----
+vitalsigns <command> [options] 
+----
+
+where command is one of (<<help,help>>, <<generate,generate>>, <<version,version>>, <<status,status>>, <<listindividuals,listindividuals>>,   
+<<mergeindividuals,mergeindividuals>>, <<removeindividuals,removeindividuals>>, <<diff,diff>>, <<merge,merge>>, <<normalizeontology,normalizeontology>>,    
+<<validateontology,validateontology>>, <<verify,verify>>, <<gitdisenable,gitdisenable>>, <<gitdisable,gitdisable>>, <<upversion,upversion>>, <<downversion,downversion>>, <<checkin,checkin>>,  
+<<purge,purge>>, <<gitpostmerge,gitpostmerge>>, <<mergestatus,mergestatus>>, <<mergetool,mergetool>>, and <<gitjarmerge,gitjarmerge>>)
+    
+
+[[help]]*help*
+
+To obtain a summary of VitalSigns commands and their usage options enter:  
+
+[source, groovy]
+----
+vitalsigns help
+----
+
+[[generate]]*generate*
+
+1. To generate a domain jar from a domain ontology enter:
+
+[source, groovy]
+----
+vitalsigns generate -o | --ontology <input ontology> -p | --package <package> -t groovy
+----
+    
+where _input ontology_ is either the file name or path to the input  
+ontology and _package_ is the name of your application's package (ie. com.your-domain.your-app-name). The -p | --package option is required only if your ontology does not have a default pacakge property. By default, the domain jar will be written at $VITAL_HOME/domain-groovy-jar/app.version.jar.  
+    
+To supply the jar file with an alternative name or to write it to a location other than default ($VITAL_HOME/domain-groovy-jar/), enter:
+    
+[source, groovy]
+----
+vitalsigns generate -j | --jar <output jar> -o | --ontology <input ontology> -p | --package <package> -t groovy
+----
+
+where _output jar_ is the path to the output jar.  
+    
+Note: To force vitalsigns to generate a new version of the jar file even if   
+no changes have been made to the ontology, specify the -or | --override option. 
+
+[start=2]
+1. To generate a json schema from a domain ontology enter:
+
+[source, groovy]  
+----
+vitalsigns generate -o | --ontology <input ontology> -or | --override -p | --package <package> -t json
+----
+
+where _input ontology_ is either the file name or path to the input ontology and _package_ is the name of your application's package (i.e. com.your-domain.your-app-name). The -p | --package option is required only if your ontology does not have a default package property. By default, the json schema will be written at $VITAL_HOME/domain-json/app.version.json.    
+    
+To supply the json schema with an alternative name or to write it to a location other than default ($VITAL_HOME/domain-json/), enter:
+    
+[source, groovy] 
+----
+vitalsigns generate -js | --json-schema <output json> -o | --ontology <input ontology> -p | --package <package> -t groovy
+----
+    
+where _output json_ is the path to the output json schema.
+    
+To force vitalsigns to generate a new version of the json schema even if no changes have been made to the ontology or a json schema already exists, specify the -or | --override option.
+   
+[[version]]*version*
+
+
+
+[[status]]*status*
+
+
+[[listindividuals]]*listindividuals*
+
+To list the individuals or "ground level" objects of an ontology enter:
+
+[source, groovy]
+----
+vitalsigns listindividuals -o <input ontology>
+----
+
+where _input ontology_ is either the file name or path to an input ontology  
+(either external or within $VITAL_HOME).    
+
+For example, entering the command:
+
+[source, groovy]
+----
+vitalsigns listindividuals -o vital-samples-0.1.0.owl
+----
+
+will produce the following output:
+
+image::list-individuals-vital-samples.png[]
+
+[[mergeindividuals]]*mergeindividuals*
+
+[[removeindividuals]]*removeindividuals*
+
+To remove all of an ontology's individuals or "ground level" objects enter:  
+
+[source, groovy]
+----
+vitalsigns removeindividuals -i <ontology file path> - o <ontology file name>
+---- 
+where _ontology file path_ is the path to the ontology from which the individuals   
+are to be removed and _ontology file name_ is the name of that ontolology in  
+$VITAL_HOME/domain-ontology/. 
+
+When removeindividuals executes, the current version of the ontology is archived  
+and a new onotlogy with the ontology's individuals removed is generated.  
+
+If git is enabled, all changes are added to the staging area.   
+
+[[diff]]*diff*
+ 
+
+[[merge]]*merge*
+
+To merge two ontologies enter:
+
+[source, groovy]
+----
+vitalsigns merge -m | --merging <merging ontology> -o | --ont <input ontology>
+----
+
+where _merging ontology_ is either the  file name or path to the merging  
+ontology (external or within $VITAL_HOME) and _input ontology_ is either the   
+file name or path to the input ontology within $VITAL_HOME.
+
+When merge executes, the current version of the  input ontology is archived and a  
+new higher-numbered version of the ontology with merged content is generated.  
+
+Following a merge, it may be nescessary to manually resolve any merge conflicts.  
+
+[[normalizeontology]]*normalizeontology*
+
+[[validateontology]]*validateontology*
+
+The VitalSigns command validateontology checks if an ontology is <<normalizeontology,normalized>>  
+and if any comments <<merge,documenting prior merge conflicts>> are present. To validate an   
+ontology enter:
+
+[source, groovy]
+----
+vitalsigns validateontology -o | --ont <input ontology>
+---- 
+where _input ontology_ is the file name or path to an input ontology.
+
+[[verify]]*verify*
+
+[[gitenable]]*gitenable*
+
+To enable vitalsigns git functionality enter:
+
+[source, groovy]
+----
+vitalsigns gitenable
+----
+
+When vitalsigns git functionality is enabled, vitalsigns will automatically add   
+changes in the working directory (made by running vitalsigns commands)  to the   
+staging area. You will still need to commit these changes.
+
+[[gitdisenable]]*gitdisenable*
+
+To disable vitalsigns git functionality enter:
+
+[source, groovy]
+----
+vitalsigns gitenable
+----
+
+When vitalsigns git functionality is disabled, vitalsigns will no longer add   
+changes in the working directory to the staging area. 
+
+[[upversion]]*upversion*
+
+To increase the patch version of the current ontology enter:  
+
+[source, groovy]
+----
+vitalsigns upversion -o | --ont <input ontology>
+----
+
+where _input ontology_ is either the  file name or path to a domain owl in  
+$VITAL_HOME/domain-ontology/.
+
+When upversion executes, the current version of the ontology is archived and a new   
+version of the ontology is generated.   
+
+If git is enabled, all changes are added to the staging area.  
+  
+Note: upversion only modifies the patch number. To modify the major or minor  
+version numbers, the ontology must be manually edited.   
+
+[[downversion]]*downversion*
+
+To decrease the patch version of the current ontology enter one of the following:
+
+[source, groovy]
+----
+vitalsigns downversion -o | --ont <input ontology>
+vitalsigns downversion -o | --ont <input ontology> -v | --version <version number>
+----
+
+where _input ontology_ is either the file name or path to a domain owl in    
+$VITAL_HOME/domain-ontology/ and _version number_ is the optional version  
+to be reverted to (n.n.n). If a version is not specified, vitalsigns will use the   
+previous version contained in the archive.
+
+When downversion executes, it archives the current version, and generates a new   
+higher-numbered version with the content of the older version.
+
+If git is enabled, all changes are added to the staging area.   
+
+Note: downversion only modifies the patch number. To modify the major or minor   
+version numbers, the ontology must be manually edited.
+
+[[checkin]]*checkin*
+
+To copy an external ontology into $VITAL_HOME/domain-ontology/, enter:
+
+[source, groovy]
+----
+vitalsigns checkin -o | --ont <external ontology>
+----
+
+where _external ontology_ is the path to an ontology which must not be   
+located in $VITAL_HOME. 
+
+If git is enabled, the checked in ontology will be added to the staging area.  
+
+[[purge]]*purge*
+
+To remove an ontology including all archived versions of an ontology as well as  
+any domain jars or JSON schema generated from an ontology enter:
+
+[source, groovy]
+----
+vitalsigns purge -a | --app <prefix>
+----
+
+where _prefix_ is the owl and jar files' prefix.
+
+[[gitpostmerge]]*gitpostmerge*
+
+[[mergestatus]]*mergestatus*
+
+[[mergetool]]*mergetool*
+
+[[gitjarmerge]]*gitjarmerge*

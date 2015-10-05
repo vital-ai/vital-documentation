@@ -1,0 +1,70 @@
+== Creating a Grails News Application with Vital AI Platform
+
+As a sample application built with the Vital AI Platform, we provide the Grails News Portal as a "starter" application.  Full source code is available, and it can be a good starting point to build your own application.
+
+The application is built using the Grails Web Framework, and uses the Groovy-based Vital Service Client API.  Clients in other languages are available.
+
+The goal of the application is a simple news portal that displays recent, top, and trending news articles, as well as top and trending news topics and people.
+
+Additional sample applications provide a dashboard to track activity in the application, and a version of the application using Hadoop and "Big Data" functionality to make content recommendations to users.
+
+*This application includes components:*
+
+* Grails Web Framework
+* Vital Service Client API
+* News Portal Data Model extending the base Vital Data Model
+* Natural Language Processing of content to extract Topics and Entities (such as People)
+* an open-source NoSQL database for data storage
+* a free RSS Feed of content
+* the Vital AI Platform
+
+*A screenshot of the home screen of the news portal follows:*
+
+image::newsportal.png[]
+
+*A screenshot of the full article screen follows:*
+
+image::fullarticle.png[]
+
+
+*A screenshot of a page of the top Politics articles follows:*
+
+image::toppoliticsarticle.png[]
+
+In this guide we will create a simple Grails News application using the Vital AI Platform as a demonstration of using the platform.
+
+We will create a News Portal using the Grails Web Framework for the user interface.
+
+The goal of the application will be to show recent, top, and trending news to the users, as well as show top and trending topics and entities.
+
+Full source code of this example is available, and can be a good start to creating your own application.
+
+A dashboard for this application will also be created, as well as an extended version incorporating Hadoop for content recommendations.
+
+*The components of the application are:*
+
+* Grails Web Framework
+* Free RSS feed of news content
+* Natural Language Processing to extract topics and entities (such as names of people) from content
+* Vital Service Client API
+* Vital AI Platform
+
+*The steps of creating the application can be summarized as follows:*
+
+1. Define the data model extending the base data model
+1. Create data bindings using `vitalsigns` command
+1. Set up the Vital Prime Server with a database for storage
+1. Hook up the RSS Feed to the Integrator step with configuration file
+1. Hook up the Natural Language Processing step with configuration file
+1. Define a VitalFlow to process content with an Integrator step and an NLP step
+1. Add a job to process and add new content using the VitalFlow on an ongoing basis
+1. Define data buckets in the Vital Prime Server configuration to collect view ("click") information to use for "top" and "trending" functions
+1. Define a simple "top" function
+1. Define a simple "trending" function
+1. Define simple functions for "recent content", "top content", and "trending content"
+1. Set up a new application in grails
+1. Set up views for the screens such as "home", "view-article", "search-results"
+1. Set up sub-views for widgets for "Top Topics", "Top Entities", "Top Articles", "Trending Articles"
+1. Set up controllers to call the Vital AI Client API to service the views
+1. Call the Vital API Client in view-article to pass "click" information to the platform
+1. Run your new grails application powered by Vital AI!
