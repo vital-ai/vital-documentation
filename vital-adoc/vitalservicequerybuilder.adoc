@@ -1,3 +1,4 @@
+:source-highlighter: coderay
 :linkattrs:
 == VitalService Query Builder
 
@@ -337,7 +338,8 @@ The domain class of "Email" must be resolved to an implementation class.  In Gro
 
 If our domain classes are found within the package: com.mycompany.domain.*, then this import should be added into the query:
 
-        def gQuery = builder.queryString ( 
+[source, groovy]        
+       def gQuery = builder.queryString ( 
          s"""
          // import statement at the head of the query
          import com.mycompany.domain.*

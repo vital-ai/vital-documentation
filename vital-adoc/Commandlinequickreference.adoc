@@ -61,6 +61,7 @@ usage: vitalsigns diff [options]
 usage: vitalsigns merge [options]
  -m,--merging <arg>   merging ontology
  -o,--ont <arg>       input ontology
+
 usage: vitalsigns normalizeontology [options]
  -cb,--commentsbefore   comments inserted before, after if flag not
                         specified

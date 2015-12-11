@@ -1,3 +1,4 @@
+:source-highlighter: coderay
 == VitalSigns Property Restriction Annotations
 
 :sectnums:
