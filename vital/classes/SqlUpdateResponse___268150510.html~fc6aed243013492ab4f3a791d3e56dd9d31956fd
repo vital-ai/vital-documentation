@@ -1,0 +1,27 @@
+<html><head>
+<title>Class: SqlUpdateResponse</title>
+<meta http-equiv='content-type' content='text/html;charset=utf8'>
+<link rel='stylesheet' href='../default.css' type='text/css' />
+</head>
+<body>
+<h1>Class: SqlUpdateResponse</h1>
+<h2 class='summaryURI'>http://vital.ai/ontology/vital-core#SqlUpdateResponse</h2>
+<h2>Superclasses (1)</h2>
+<div class='codebox' id='superclasses_(1)'>
+<ul>
+<li>
+<a href="VITAL_Node___-290399221.html" title="http://vital.ai/ontology/vital-core#VITAL_Node">VITAL_Node</a></li>
+</ul>
+</div><!-- superclasses (1) -->
+<h2>Usage (2)</h2>
+<div class='codebox' id='usage_(2)'>
+<ul>
+<li>
+<span class='keyword'>Class</span>: <span class='active-entity'>SqlUpdateResponse</span></li>
+<li>
+<a href="../dataproperties/hasUpdatedRowsCount___783984747.html" title="http://vital.ai/ontology/vital-core#hasUpdatedRowsCount">hasUpdatedRowsCount</a> <span class='keyword'>Domain</span> <span class='active-entity'>SqlUpdateResponse</span></li>
+</ul>
+</div><!-- usage (2) -->
+<p class='footer'>
+<a href='http://code.google.com/p/ontology-browser/' target='_blank'>OWL HTML inside</a></p>
+</body></html>
