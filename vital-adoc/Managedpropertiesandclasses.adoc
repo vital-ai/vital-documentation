@@ -1,3 +1,4 @@
+:source-highlighter: coderay
 == Managed Properties and Classes
 
 VitalSigns turns classes and properties defined in OWL into data objects available in the JVM.

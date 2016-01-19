@@ -1,3 +1,4 @@
+:source-highlighter: coderay
 == Using VitalSigns
 
 :sectnums:
@@ -23,7 +24,7 @@ interface for Microsoft Windows.
 
 Vital Signs commands have the following usage pattern:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns <command> [options] 
 ----
@@ -38,7 +39,7 @@ where command is one of (<<help,help>>, <<generate,generate>>, <<version,version
 
 To obtain a summary of VitalSigns commands and their usage options enter:  
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns help
 ----
@@ -47,7 +48,7 @@ vitalsigns help
 
 1. To generate a domain jar from a domain ontology enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns generate -o | --ontology <input ontology> -p | --package <package> -t groovy
 ----
@@ -57,7 +58,7 @@ ontology and _package_ is the name of your application's package (ie. com.your-d
     
 To supply the jar file with an alternative name or to write it to a location other than default ($VITAL_HOME/domain-groovy-jar/), enter:
     
-[source, groovy]
+[source, sh]
 ----
 vitalsigns generate -j | --jar <output jar> -o | --ontology <input ontology> -p | --package <package> -t groovy
 ----
@@ -70,7 +71,7 @@ no changes have been made to the ontology, specify the -or | --override option.
 [start=2]
 1. To generate a json schema from a domain ontology enter:
 
-[source, groovy]  
+[source, sh]  
 ----
 vitalsigns generate -o | --ontology <input ontology> -or | --override -p | --package <package> -t json
 ----
@@ -79,7 +80,7 @@ where _input ontology_ is either the file name or path to the input ontology and
     
 To supply the json schema with an alternative name or to write it to a location other than default ($VITAL_HOME/domain-json/), enter:
     
-[source, groovy] 
+[source, sh] 
 ----
 vitalsigns generate -js | --json-schema <output json> -o | --ontology <input ontology> -p | --package <package> -t groovy
 ----
@@ -99,7 +100,7 @@ To force vitalsigns to generate a new version of the json schema even if no chan
 
 To list the individuals or "ground level" objects of an ontology enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns listindividuals -o <input ontology>
 ----
@@ -109,7 +110,7 @@ where _input ontology_ is either the file name or path to an input ontology
 
 For example, entering the command:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns listindividuals -o vital-samples-0.1.0.owl
 ----
@@ -124,7 +125,7 @@ image::list-individuals-vital-samples.png[]
 
 To remove all of an ontology's individuals or "ground level" objects enter:  
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns removeindividuals -i <ontology file path> - o <ontology file name>
 ---- 
@@ -144,7 +145,7 @@ If git is enabled, all changes are added to the staging area.
 
 To merge two ontologies enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns merge -m | --merging <merging ontology> -o | --ont <input ontology>
 ----
@@ -166,7 +167,7 @@ The VitalSigns command validateontology checks if an ontology is <<normalizeonto
 and if any comments <<merge,documenting prior merge conflicts>> are present. To validate an   
 ontology enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns validateontology -o | --ont <input ontology>
 ---- 
@@ -178,7 +179,7 @@ where _input ontology_ is the file name or path to an input ontology.
 
 To enable vitalsigns git functionality enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns gitenable
 ----
@@ -191,7 +192,7 @@ staging area. You will still need to commit these changes.
 
 To disable vitalsigns git functionality enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns gitenable
 ----
@@ -203,7 +204,7 @@ changes in the working directory to the staging area.
 
 To increase the patch version of the current ontology enter:  
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns upversion -o | --ont <input ontology>
 ----
@@ -223,7 +224,7 @@ version numbers, the ontology must be manually edited.
 
 To decrease the patch version of the current ontology enter one of the following:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns downversion -o | --ont <input ontology>
 vitalsigns downversion -o | --ont <input ontology> -v | --version <version number>
@@ -246,7 +247,7 @@ version numbers, the ontology must be manually edited.
 
 To copy an external ontology into $VITAL_HOME/domain-ontology/, enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns checkin -o | --ont <external ontology>
 ----
@@ -261,7 +262,7 @@ If git is enabled, the checked in ontology will be added to the staging area.
 To remove an ontology including all archived versions of an ontology as well as  
 any domain jars or JSON schema generated from an ontology enter:
 
-[source, groovy]
+[source, sh]
 ----
 vitalsigns purge -a | --app <prefix>
 ----

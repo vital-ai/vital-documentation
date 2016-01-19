@@ -1,3 +1,5 @@
+:showcomments:
+:source-highlighter: coderay
 :linkattrs:
 == Hello World Example 
 :sectnums:
@@ -72,27 +74,27 @@ defSpanType 'demo:BrandEntity#name' = 'demo:BrandEntity' : [ any+ ];
 
 Example Dictionary file: fashion_brands.txt
 
-[source, groovy]
-Hello World
-Armani Exchange
-Ramosport
-ZipperGirl
-Elaine Klimaszewski
-Cosa Nostra
-Wet Seal, Inc.
-Rocawear
-Mr. Song Millinery
-Michael Bastian
-Kirribilla
-Heatherette
-Traver Rains
-Abaete
-Anait Bian
-ADAM
-Andrew Gn Designs
-Nina Ricci
-Olivier Theyskens
-Marc Jacobs
+
+Hello World +
+Armani Exchange +
+Ramosport +
+ZipperGirl +
+Elaine Klimaszewski +
+Cosa Nostra +
+Wet Seal, Inc. +
+Rocawear +
+Mr. Song Millinery +
+Michael Bastian +
+Kirribilla +
+Heatherette +
+Traver Rains +
+Abaete +
+Anait Bian +
+ADAM +
+Andrew Gn Designs +
+Nina Ricci +
+Olivier Theyskens +
+Marc Jacobs +
 ...
 
 

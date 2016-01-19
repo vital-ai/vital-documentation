@@ -1,3 +1,4 @@
+:source-highlighter: coderay
 == Unmanaged Properties and Classes
 
 A base Vital data object may be used to represent an arbitrary instance of a class and set of properties.

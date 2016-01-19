@@ -1,80 +1,103 @@
+:showcomments:
+:source-highlighter: coderay
+
 == Command Line Quick Reference
 
 :sectnums:
 :linkattrs:
+
 === VitalSigns
 
 * *vitalsigns:* tool to manage domain ontologies
 
-[source,groovy]
+[source,sh]
 ----
 Usage: vitalsigns <command> [options]
+   where command is one of: [upversion, downversion, mergestatus, listindividuals, gitpostmerge, gitmergetool, diff, normalizeontology, purge, version, removeindividuals, deploy, help, gitdisable, checkin, mergeindividuals, merge, validateontology, verify, gitenable, gitjarmerge, generate, status, undeploy]
 
-where command is one of:
-[gitmergetool, upversion, generate, diff, status, verify, merge, mergestatus, downversion, gitenable,
-validateontology, version, gitdisable, removeindividuals, listindividuals, checkin, help, gitjarmerge,
-mergeindividuals, normalizeontology, purge, gitpostmerge]
 
 usage: vitalsigns generate [options]
  -j,--jar <arg>            (only groovy) optional output jar file path, by
                            default it will write domain jar at
-                           $VITAL_HOME/domain-jar/app.version.jar
+                           $VITAL_HOME/domain-groovy-jar/app-groovy-versio
+                           n.jar
  -js,--json-schema <arg>   (only json) optional output json schema file
                            path, by default it will write domain schema
                            json at
-                           $VITAL_HOME/domain-json/app.version.json
+                           $VITAL_HOME/domain-json-schema/app-version.js
  -o,--ontology <arg>       OWL Domain Ontology File
  -or,--override            force to generate the new version even if no
                            changes detected or json schema exists
  -p,--package <arg>        (only groovy) package (ie.
-                           com.your-domain.your-app-name)
+                           com.your-domain.your-app-name), required if
+                           ontology does not have default package property
  -t,--target <arg>         output target: 'groovy' or 'json', default
                            'groovy'
 
+
 usage: vitalsigns version [options]
  -o,--ontology <arg>   OWL Domain Ontology File
+
 
 usage: vitalsigns status (no options)
  -q,--quick     quick - skip parsing ontologies
  -v,--verbose   print warnings and other messages
 
+
 usage: vitalsigns listindividuals [options]
  -o,--ontology <arg>   OWL Domain Ontology File
+
 
 usage: vitalsigns mergeindividuals [options]
  -i,--individuals <arg>   individuals ontology file path
  -o,--ontology <arg>      ontology file name in
                           $VITAL_HOME/domain-ontology/
 
+
 usage: vitalsigns removeindividuals [options]
  -i,--individuals <arg>   individuals ontology file path
  -o,--ontology <arg>      ontology file name in
                           $VITAL_HOME/domain-ontology/
+
 
 usage: vitalsigns diff [options]
  -h,--history <arg>   show the Nth prior version found in the archive -
                       used with single ont param only
  -o,--ont <arg>       exactly 1 or 2 such params required: ontology file
                       path, when just file name used it will look in
-                      $VITAL_HOME/domain-ontology/
+                      $VITAL_HOME/domain-ontology/ *
 
 usage: vitalsigns merge [options]
  -m,--merging <arg>   merging ontology
  -o,--ont <arg>       input ontology
+
 
 usage: vitalsigns normalizeontology [options]
  -cb,--commentsbefore   comments inserted before, after if flag not
                         specified
  -o,--ont <arg>         ontology (will be replaced)
 
+
 usage: vitalsigns validateontology [options]
  -o,--ont <arg>   input ontology
+
+
 usage: vitalsigns verify (no options)
+
+
+
 usage: vitalsigns gitenable (no options)
+
+
+
 usage: vitalsigns gitdisable (no options)
+
+
+
 usage: vitalsigns upversion [options]
  -o,--ont <arg>   input ontology, either file name or path to domain owl
                   in ($VITAL_HOME/domain-ontology/)
+
 
 usage: vitalsigns downversion [options]
  -o,--ont <arg>       input ontology, either file name or path to domain
@@ -82,16 +105,23 @@ usage: vitalsigns downversion [options]
  -v,--version <arg>   optional version to be reverted to, n.n.n, latest
                       used if not specified
 
+
 usage: vitalsigns checkin [options]
  -o,--ont <arg>   external ontology file, must not be located in
                   $VITAL_HOME
 
+
 usage: vitalsigns purge [options]
  -a,--app <arg>   owl and jar files prefix
 
+
 usage: vitalsigns gitpostmerge (no options)
 
+
+
 usage: vitalsigns mergestatus (no options)
+
+
 
 usage: vitalsigns gitmergetool (options)
  -b,--base <arg>     base owl file path
@@ -99,11 +129,26 @@ usage: vitalsigns gitmergetool (options)
  -o,--output <arg>   output merged owl file path
  -r,--remote <arg>   remote owl file path
 
+
 usage: vitalsigns gitjarmerge (options)
  -b,--base <arg>     base jar file path
  -l,--local <arg>    local jar file path
  -o,--output <arg>   output merged jar file path
  -r,--remote <arg>   remote jar file path
+
+
+usage: vitalsigns deploy (options)
+ -app,--application <arg>    Application ID
+ -j,--jar <arg>              domain jar file path
+ -js,--json-schema <arg>     json schema file path
+ -o,--ontology <arg>         OWL Domain Ontology File
+ -org,--organization <arg>   Organization ID
+
+
+usage: vitalsigns undeploy (options)
+ -j,--jar <arg>            domain jar file path
+ -js,--json-schema <arg>   json schema file path
+ -o,--ontology <arg>       OWL Domain Ontology File
 
 ----
 
@@ -111,7 +156,7 @@ usage: vitalsigns gitjarmerge (options)
 
 * *vitalimport:* import data into Vital Service
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalimport [options]
  -b,--batch <arg>     blocks per batch, default: 1
@@ -126,7 +171,7 @@ usage: vitalimport [options]
 
 * *vitalexport:* export data from Vital Service
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalexport [options]
  -b,--block <arg>     block size (only .vital[.gz]), default 10
@@ -139,7 +184,7 @@ usage: vitalexport [options]
 
 * *vitalconvert:* convert data between Block, CSV, or N-Triples format
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalconvert [options]
  -h,--help            display usage
@@ -156,7 +201,7 @@ usage: vitalconvert [options]
 
 * *vitalmerge:* Merge input block files into output block file
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalmerge [options]
  -i,--input <arg>    input block file
@@ -169,195 +214,279 @@ usage: vitalmerge [options]
 
 * *vitalquery:* Quert Vital Service
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalquery [options]
- -h,--help           Show usage information
- -o,--output <arg>   output block file, it prints to console otherwise
- -ow,--overwrite     overwrite output file
- -q,--query <arg>    qurery file
+ -g,--group <arg>        group graph matches into blocks, explicit boolean
+                         flag parameter [true|false], requires mainProp,
+                         only graph query
+ -h,--help               Show usage information
+ -mp,--mainProp <arg>    main bound property, required when --group=true
+ -o,--output <arg>       output (.vital[.gz]|.sparql|.txt) block or sparql
+                         or txt file (depending on -s flag and query
+                         type), it prints to console otherwise, txt file
+                         for select distinct case only
+ -ow,--overwrite         overwrite output file
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -q,--query <arg>        qurery file (.groovy|.builder) - groovy or query
+                         builder defined query
+ -s,--tosparql           output the query as sparql instead of executing
+                         it
 ----
 
 === Vital Service
 
 * *vitaldatascript:* manage and run datascripts and jobs
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitaldatascript <command> [options] ...
-
 usage: vitaldatascript help (prints usage)
-
 usage: vitaldatascript listdatascripts [options]
- -p,--path <arg>   scripts base path: admin/* <app>/* or commons/admin/*
-                   or commons/scripts/*
-                   
-usage: vitaldatascript getdatascript [options]
- -o,--output <arg>   optional output file to save the script body to
- -ow,--overwrite     overwrite output file if exists
- -p,--path <arg>     scripts base path: admin/<script_name>
-                     <app>/<script_name> or commons/admin/<script_name> or
-                     commons/scripts/<script_name>
-                     
-usage: vitaldatascript adddatascript [options]
- -f,--file <arg>   script input file path
- -p,--path <arg>   script path: admin/<script_name> <app>/<script_name> or
-                   commons/admin/<script_name> or
-                   commons/scripts/<script_name>
-                   
-usage: vitaldatascript removedatascript [options]
- -p,--path <arg>   script path: admin/<script_name> <app>/<script_name> or
-                   commons/admin/<script_name> or
-                   commons/scripts/<script_name>
-                   
-usage: vitaldatascript rundatascript [options]
- -i,--input <arg>   input params groovy file - must return a map of
-                    parameters
- -p,--path <arg>    script path: admin/<script_name> <app>/<script_name>
-                    or commons/admin/<script_name> or
-                    commons/scripts/<script_name>
-                    
+ -p,--path <arg>         scripts base path: admin/ * <app>/ * or
+                         commons/admin/ * or commons/scripts/ *
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitaldatascript listjobs [options]
- -j,--jobID <arg>   optional jobID used as a filter
- 
-usage: vitaldatascript killjob [options]
- -j,--jobID <arg>   jobID to kill
+ -p,--path <arg>         jobs base path: admin/ * <app>/ * or
+                         commons/admin/ * or commons/scripts/ *
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitaldatascript getdatascript [options]
+ -o,--output <arg>       optional output file to save the script body to
+ -ow,--overwrite         overwrite output file if exists
+ -p,--path <arg>         scripts base path: admin/<script_name>
+                         <app>/<script_name> or
+                         commons/admin/<script_name> or
+                         commons/scripts/<script_name>
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitaldatascript adddatascript [options]
+ -f,--file <arg>         script input file path
+ -p,--path <arg>         script path: admin/<script_name>
+                         <app>/<script_name> or
+                         commons/admin/<script_name> or
+                         commons/scripts/<script_name>
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitaldatascript removedatascript [options]
+ -p,--path <arg>         script path: admin/<script_name>
+                         <app>/<script_name> or
+                         commons/admin/<script_name> or
+                         commons/scripts/<script_name>
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitaldatascript rundatascript [options]
+ -i,--input <arg>        input params groovy file - must return a map of
+                         parameters
+ -p,--path <arg>         script path: admin/<script_name>
+                         <app>/<script_name> or
+                         commons/admin/<script_name> or
+                         commons/scripts/<script_name>
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitaldatascript listtasks [options]
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -t,--taskID <arg>       optional taskID used as a filter
+usage: vitaldatascript killtask [options]
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -t,--taskID <arg>       taskID to kill
 ----
 
 
 * *vitalftp:* transfer file to Vital Service, get file from Vital Service, delete file on Vital Service
 
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalftp <command> [options] ...
-
 usage: vitalftp help (prints usage)
-
 usage: vitalftp put [options]
- -f,--file <arg>   local file to upload
- -ow,--overwrite   overwrite remote file if exists
- 
+ -f,--file <arg>         local file to upload
+ -ow,--overwrite         overwrite remote file if exists
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalftp get [options]
- -d,--directory <arg>   output directory to save the file
- -n,--name <arg>        remote file name
- -ow,--overwrite        overwrite the output file if exists
- 
-usage: vitalftp ls (no options)
-
+ -d,--directory <arg>    output directory to save the file
+ -n,--name <arg>         remote file name
+ -ow,--overwrite         overwrite the output file if exists
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitalftp ls [options]
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalftp del [options]
- -n,--name <arg>   remote file name
- 
+ -n,--name <arg>         remote file name
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalftp purge (no options)
+ -prof,--profile <arg>   vitalservice profile, default: default
 ----
 
 * *vitallucene:* manage Lucene implementation of Vital Service
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitallucene <command> [options] ...
-
 usage: vitallucene help (prints usage)
-
 usage: vitallucene init [options]
- -f,--force            override existing directory
- -l,--location <arg>   either target directory or 'conf' value to use
-                       service config
-                       
+ -f,--force              override existing directory
+ -l,--location <arg>     either target directory or 'conf' value to use
+                         service config
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitallucene listapps [options]
-
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitallucene addapp [options]
- -a,--app <arg>    app ID
- -n,--name <arg>   app name
- 
+ -a,--app <arg>          app ID
+ -n,--name <arg>         app name
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitallucene removeapp [options]
- -a,--app <arg>   app ID
- 
+ -a,--app <arg>          app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitallucene listsegments [options]
- -a,--appID <arg>   app ID
- 
+ -a,--appID <arg>        app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitallucene removesegment [options]
- -a,--appID <arg>       app ID
- -d,--deleteData        delete data
- -s,--segmentID <arg>   segment ID
- 
+ -a,--appID <arg>        app ID
+ -d,--deleteData         delete data
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -s,--segmentID <arg>    segment ID
 usage: vitallucene addsegment [options]
- -a,--appID <arg>       app ID
- -ro,--readOnly         read only
- -s,--segmentID <arg>   segment ID
- -t,--type <arg>        segment type: [disk, memory]
+ -a,--appID <arg>        app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -ro,--readOnly          read only
+ -s,--segmentID <arg>    segment ID
+ -t,--type <arg>         segment type: [disk, memory]
+usage: vitallucene datamigrate [options]
+ -a,--appID <arg>                     app ID
+ -b,--builder <arg>                   builder file, .groovy or .builder
+                                      extension
+ -d,--direction <arg>                 [upgrade, dowgrade], required in
+                                      builderless mode
+ -dss,--delete-source-segment <arg>   [true, false] overrides
+                                      deleteSourceSegment in a builder
+ -h,--help                            display usage
+ -i,--input <arg>                     overrides source segment in a
+                                      builder
+ -o,--output <arg>                    overrides destination segment in a
+                                      builder
+ -owlfile,--owl-file <arg>            older owl file name option, required
+                                      in builderless mode
+ -prof,--profile <arg>                vitalservice profile, default:
+                                      default
 ----
 
 * *vitalprime:* manage VitalPrime Vital Service implementation
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalprime <command> [options] ...
-
 usage: vitalprime help (prints usage)
-
 usage: vitalprime listapps [options]
-
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime addapp [options]
- -a,--app <arg>    app ID
- -n,--name <arg>   app name
- 
+ -a,--app <arg>          app ID
+ -n,--name <arg>         app name
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime removeapp [options]
- -a,--app <arg>   app ID
- 
+ -a,--app <arg>          app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime listsegments [options]
- -a,--appID <arg>   app ID
- 
+ -a,--appID <arg>        app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime removesegment [options]
- -a,--appID <arg>       app ID
- -d,--deleteData        delete data
- -s,--segmentID <arg>   segment ID
- 
+ -a,--appID <arg>        app ID
+ -d,--deleteData         delete data
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -s,--segmentID <arg>    segment ID
 usage: vitalprime addsegment [options]
  -a,--appID <arg>              app ID
  -p,--provisioningFile <arg>   optional  provisioning config file - used
                                when vitalprime hosts DynamoDB or IndexDB
                                with DynamoDB backend
+ -prof,--profile <arg>         vitalservice profile, default: default
  -ro,--readOnly                read only
  -s,--segmentID <arg>          segment ID
  -t,--type <arg>               optional inner segment (endpoint) type,
                                required if prime hosts more than 1
                                endpoint
-                               
+usage: vitalprime reindexsegment [options]
+ -a,--appID <arg>        app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -s,--segmentID <arg>    segment ID
 usage: vitalprime verifyindexes (no options)
-
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime rebuildindexes (no options)
-
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime status (no options)
-
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime shutdown (no options)
-
+ -prof,--profile <arg>   vitalservice profile, default: default
 usage: vitalprime get [options]
- -a,--appID <arg>    app ID
- -o,--output <arg>   optional output block file .vital[.gz], by default
-                     prints to console
- -u,--uri <arg>      graph object URI
- 
+ -a,--appID <arg>        app ID
+ -o,--output <arg>       optional output block file .vital[.gz], by
+                         default prints to console
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -u,--uri <arg>          graph object URI
 usage: vitalprime update [options]
- -a,--appID <arg>     app ID
- -i,--input <arg>     input block file with single block and single graph
-                      object .vital[.gz]
- -s,--segment <arg>   segment ID
- 
+ -a,--appID <arg>        app ID
+ -i,--input <arg>        input block file with single block and single
+                         graph object .vital[.gz]
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -s,--segment <arg>      segment ID
 usage: vitalprime insert [options]
- -a,--appID <arg>     app ID
- -i,--input <arg>     input block file with single block and single graph
-                      object .vital[.gz]
- -s,--segment <arg>   segment ID
- 
+ -a,--appID <arg>        app ID
+ -i,--input <arg>        input block file with single block and single
+                         graph object .vital[.gz]
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -s,--segment <arg>      segment ID
 usage: vitalprime delete [options]
- -a,--appID <arg>   app ID
- -u,--uri <arg>     graph object URI
+ -a,--appID <arg>        app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -u,--uri <arg>          graph object URI
+usage: vitalprime listmodels [options]
+ -a,--appID <arg>        app ID
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitalprime deploy [options]
+ -a,--appID <arg>        app ID
+ -art,--artifact <arg>   artifact file name (jar/owl/js) or file path in
+                         $VITAL_HOME/domain-groovy-jar/,
+                         $VITAL_HOME/domain-json-schema/ or
+                         $VITAL_HOME/domain-ontology/
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -sa,--singleartifact    deploy this single artifact only
+usage: vitalprime undeploy [options]
+ -a,--appID <arg>        app ID
+ -art,--artifact <arg>   artifact file name (jar/owl/js) or file path in
+                         $VITAL_HOME/domain-groovy-jar/,
+                         $VITAL_HOME/domain-json-schema/ or
+                         $VITAL_HOME/domain-ontology/
+ -prof,--profile <arg>   vitalservice profile, default: default
+ -sa,--singleartifact    undeploy this single artifact only
+usage: vitalprime load [options]
+ -a,--appID <arg>        app ID
+ -j,--jar <arg>          remote jar name
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitalprime unload [options]
+ -a,--appID <arg>        app ID
+ -j,--jar <arg>          remote jar name
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitalprime syncmodels [options]
+ -a,--appID <arg>        app ID
+ -d,--direction <arg>    direction, one of, pull (default), push, both
+ -prof,--profile <arg>   vitalservice profile, default: default
+usage: vitalprime datamigrate [options]
+ -a,--appID <arg>                     app ID
+ -b,--builder <arg>                   builder file, .groovy or .builder
+                                      extension
+ -d,--direction <arg>                 [upgrade, dowgrade], required in
+                                      builderless mode
+ -dss,--delete-source-segment <arg>   [true, false] overrides
+                                      deleteSourceSegment in a builder
+ -h,--help                            display usage
+ -i,--input <arg>                     overrides source segment in a
+                                      builder
+ -o,--output <arg>                    overrides destination segment in a
+                                      builder
+ -owlfile,--owl-file <arg>            older owl file name option, required
+                                      in builderless mode
+ -prof,--profile <arg>                vitalservice profile, default:
+                                      default
 ----
 
 * *vitaldynamodb:* Manage DynamoDB Vital Service implementation
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitaldynamodb <command> [options] ...
 
@@ -389,34 +518,34 @@ usage: vitaldynamodb addsegment [options]
  -s,--segmentID <arg>          segment ID
 ----
 
-* *vitaltriplestore:* Manage triplestore Vital Service implementation
+* *vitalsparqlstore:* Manage sparqlstore Vital Service implementation
 
-[source,groovy]
+[source,sh]
 ----
-usage: vitaltriplestore <command> [options] ...
+usage: vitalsparqlstore <command> [options] ...
 
-usage: vitaltriplestore help (prints usage)
+usage: vitalsparqlstore help (prints usage)
 
-usage: vitaltriplestore listapps [options]
+usage: vitalsparqlstore listapps [options]
 
-usage: vitaltriplestore init
+usage: vitalsparqlstore init
 
-usage: vitaltriplestore addapp [options]
+usage: vitalsparqlstore addapp [options]
  -a,--app <arg>    app ID
  -n,--name <arg>   app name
  
-usage: vitaltriplestore removeapp [options]
+usage: vitalsparqlstore removeapp [options]
  -a,--app <arg>   app ID
  
-usage: vitaltriplestore listsegments [options]
+usage: vitalsparqlstore listsegments [options]
  -a,--appID <arg>   app ID
  
-usage: vitaltriplestore removesegment [options]
+usage: vitalsparqlstore removesegment [options]
  -a,--appID <arg>       app ID
  -d,--deleteData        delete data
  -s,--segmentID <arg>   segment ID
  
-usage: vitaltriplestore addsegment [options]
+usage: vitalsparqlstore addsegment [options]
  -a,--appID <arg>       app ID
  -ro,--readOnly         read only
  -s,--segmentID <arg>   segment ID
@@ -425,7 +554,7 @@ usage: vitaltriplestore addsegment [options]
 * *vitalindexdb:* Manage IndexDB Vital Service implementation (combined Index and Database)
 
 
-[source,groovy]
+[source,sh]
 ----
 usage: vitalindexdb <command> [options] ...
 
@@ -473,7 +602,7 @@ usage: vitalindexdb rebuildindexes (no options)
 Implementation found here: https://github.com/vital-ai/vital-scripts[https://github.com/vital-ai/vital-scripts, window="https://github.com/vital-ai/vital-scripts"]  
 Simple script to change a soft link for location of VITAL_HOME to make it easy to switch between multiple installations.
 
-[source,groovy]
+[source,sh]
 ----
 usage: vital-switch <name>
 ----
