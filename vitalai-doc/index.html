@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="generator" content="Asciidoctor 1.5.4">
 <title>Vital AI Documentation</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-/* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -57,7 +57,6 @@ a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
 img{-ms-interpolation-mode:bicubic}
-#map_canvas img,#map_canvas embed,#map_canvas object,.map_canvas img,.map_canvas embed,.map_canvas object{max-width:none!important}
 .left{float:left!important}
 .right{float:right!important}
 .text-left{text-align:left!important}
@@ -65,10 +64,12 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-.antialiased,body{-webkit-font-smoothing:antialiased}
-img{display:inline-block;vertical-align:middle}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
 p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
@@ -111,12 +112,14 @@ blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
-h4{font-size:1.4375em}}table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7;font-weight:bold}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
@@ -124,7 +127,7 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 *:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{display:inline-block;color:rgba(0,0,0,.8);font-size:.75em;line-height:1.4;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:-.15em .15em 0 .15em;padding:.2em .6em .2em .5em;vertical-align:middle;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menu{color:rgba(0,0,0,.8)}
@@ -155,29 +158,33 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toc ul.sectlevel0>li>a{font-style:italic}
 #toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
 #toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
 #toc a{text-decoration:none}
 #toc a:active{text-decoration:underline}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media only screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
 #toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2 #toctitle{margin-top:0;font-size:1.2em}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
 #toc.toc2 ul ul{margin-left:0;padding-left:1em}
 #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
 body.toc2.toc-right{padding-left:0;padding-right:15em}
-body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
 #toc.toc2{width:20em}
 #toc.toc2 #toctitle{font-size:1.375em}
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
-body.toc2.toc-right{padding-left:0;padding-right:20em}}#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
 #footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 .sect1{padding-bottom:.625em}
-@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}.sect1+.sect1{border-top:1px solid #efefed}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
 #content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
 #content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
 #content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
@@ -206,7 +213,9 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
 .literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
 .literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
-@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
 .listingblock pre.highlightjs{padding:0}
 .listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
@@ -216,7 +225,7 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
 .listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
 table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
 table.pyhltable td.code{padding-left:.75em;padding-right:0}
 pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
 pre.pygments .lineno{display:inline-block;margin-right:.25em}
@@ -237,13 +246,12 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
 .quoteblock .attribution br,.verseblock .attribution br{display:none}
-.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.05em;color:rgba(0,0,0,.6)}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
 .quoteblock.abstract{margin:0 0 1.25em 0;display:block}
 .quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
 .quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
-table.spread{width:100%}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
 table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
 table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
@@ -289,8 +297,8 @@ ol.upperroman{list-style-type:upper-roman}
 ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table,.colist>table{border:0;background:none}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
-td.hdlist1{padding-right:.75em;font-weight:bold}
-td.hdlist1,td.hdlist2{vertical-align:top}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
 .colist>table tr>td:last-of-type{padding:.25em 0}
@@ -303,13 +311,14 @@ td.hdlist1,td.hdlist2{vertical-align:top}
 .image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
 .image.left{margin-right:.625em}
 .image.right{margin-left:.625em}
-a.image{text-decoration:none}
-span.footnote,span.footnoteref{vertical-align:super;font-size:.875em}
-span.footnote a,span.footnoteref a{text-decoration:none}
-span.footnote a:active,span.footnoteref a:active{text-decoration:underline}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
-#footnotes .footnote{padding:0 .375em;line-height:1.3;font-size:.875em;margin-left:1.2em;text-indent:-1.2em;margin-bottom:.2em}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
@@ -367,11 +376,10 @@ span.icon>.fa{cursor:default}
 pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
-h1,h2{letter-spacing:-.01em}
-dt,th.tableblock,td.content{text-rendering:optimizeLegibility}
-p,td.content{letter-spacing:-.01em}
-p strong,td.content strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content{font-size:1.0625rem}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -382,9 +390,9 @@ a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
 abbr[title]:after{content:" (" attr(title) ")"}
-pre,blockquote,tr,img{page-break-inside:avoid}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
-img{max-width:100%!important}
+svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
@@ -413,9 +421,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 /*pre.CodeRay {background-color:#f7f7f8;}*/
 .CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
 .CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
-.CodeRay .line-numbers strong{font-weight: normal}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
 table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
-table.CodeRay td{vertical-align: top}
+table.CodeRay td{vertical-align: top;line-height:1.45}
 table.CodeRay td.line-numbers{text-align:right}
 table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
 table.CodeRay td.code{padding:0 0 0 .5em}
@@ -450,7 +458,7 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .hex{color:#058}
 .CodeRay .integer,.CodeRay .float{color:#099}
 .CodeRay .include{color:#555}
-.CodeRay .inline{color:#00}
+.CodeRay .inline{color:#000}
 .CodeRay .inline .inline{background:#ccc}
 .CodeRay .inline .inline .inline{background:#bbb}
 .CodeRay .inline .inline-delimiter{color:#d14}
@@ -612,7 +620,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_serialized_data">33. Serialized Data</a></li>
 <li><a href="#_converting_from_csv_triple_files_to_vital_format">34. Converting from CSV, Triple Files to Vital format</a></li>
 <li><a href="#_vital_service_lucene_implementation">35. Vital Service Lucene Implementation</a></li>
-<li><a href="#_vital_service_triplestore_implementation">36. Vital Service Triplestore Implementation</a></li>
+<li><a href="#_vital_service_sparqlstore_implementation">36. Vital Service Sparqlstore Implementation</a></li>
 <li><a href="#_vital_service_dynamodb_implementation">37. Vital Service DynamoDB Implementation</a></li>
 <li><a href="#_vital_service_mongodb_implementation">38. Vital Service MongoDB Implementation</a></li>
 <li><a href="#_vital_service_indexdb_implementation_combine_indexing_service_with_database_service">39. Vital Service IndexDB Implementation (Combine Indexing Service with Database Service)</a></li>
@@ -696,7 +704,7 @@ VDK distribution and the VDK install script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">chmod u+x .<span class="regexp"><span class="delimiter">/</span><span class="content">vdk-install-0.2.250.sh</span></span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">chmod u+x ./vdk-install-0.2.250.sh</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -708,7 +716,7 @@ VDK distribution and the VDK install script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">.<span class="regexp"><span class="delimiter">/</span><span class="content">vdk-install-0.2.250.sh </span><span class="inline"><span class="inline-delimiter">$</span>VITAL_HOME</span><span class="content"> .</span></span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">./vdk-install-0.2.250.sh $VITAL_HOME .</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -741,7 +749,7 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">chmod u+x .<span class="regexp"><span class="delimiter">/</span><span class="content">vdk-uninstall-0.2.250.sh</span></span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">chmod u+x ./vdk-uninstall-0.2.250.sh</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -753,7 +761,7 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">.<span class="regexp"><span class="delimiter">/</span><span class="content">vdk-uninstall-0.2.250.sh </span><span class="inline"><span class="inline-delimiter">$</span>VITAL_HOME</span><span class="content"> .</span></span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">./vdk-uninstall-0.2.250.sh $VITAL_HOME .</code></pre>
 </div>
 </div>
 </div>
@@ -773,143 +781,143 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">Usage</span>: vitalsigns &lt;command&gt; [options]
-   where command is one <span class="key">of</span>: [upversion, downversion, mergestatus, listindividuals, gitpostmerge, gitmergetool, diff, normalizeontology, purge, version, removeindividuals, deploy, help, gitdisable, checkin, mergeindividuals, merge, validateontology, verify, gitenable, gitjarmerge, generate, status, undeploy]
+<pre class="CodeRay highlight"><code data-lang="sh">Usage: vitalsigns &lt;command&gt; [options]
+   where command is one of: [upversion, downversion, mergestatus, listindividuals, gitpostmerge, gitmergetool, diff, normalizeontology, purge, version, removeindividuals, deploy, help, gitdisable, checkin, mergeindividuals, merge, validateontology, verify, gitenable, gitjarmerge, generate, status, undeploy]
 
 
-<span class="key">usage</span>: vitalsigns generate [options]
+usage: vitalsigns generate [options]
  -j,--jar &lt;arg&gt;            (only groovy) optional output jar file path, by
-                           <span class="keyword">default</span> <span class="local-variable">it</span> will write domain jar at
-                           <span class="error">$</span>VITAL_HOME/domain-groovy-jar/app-groovy-versio
+                           default it will write domain jar at
+                           $VITAL_HOME/domain-groovy-jar/app-groovy-versio
                            n.jar
  -js,--json-schema &lt;arg&gt;   (only json) optional output json schema file
-                           path, by <span class="keyword">default</span> <span class="local-variable">it</span> will write domain schema
+                           path, by default it will write domain schema
                            json at
-                           <span class="error">$</span>VITAL_HOME/domain-json-schema/app-version.js
- -o,--ontology &lt;arg&gt;       OWL Domain Ontology <span class="predefined-type">File</span>
- -or,--override            force to generate the <span class="keyword">new</span> version even <span class="keyword">if</span> no
+                           $VITAL_HOME/domain-json-schema/app-version.js
+ -o,--ontology &lt;arg&gt;       OWL Domain Ontology File
+ -or,--override            force to generate the new version even if no
                            changes detected or json schema exists
- -p,--<span class="keyword">package</span> &lt;arg&gt;        (only groovy) <span class="keyword">package</span> (ie.
-                           com.your-domain.your-app-name), required <span class="keyword">if</span>
-                           ontology does not have <span class="keyword">default</span> <span class="keyword">package</span> property
- -t,--target &lt;arg&gt;         output <span class="key">target</span>: <span class="string"><span class="delimiter">'</span><span class="content">groovy</span><span class="delimiter">'</span></span> or <span class="string"><span class="delimiter">'</span><span class="content">json</span><span class="delimiter">'</span></span>, <span class="keyword">default</span>
-                           <span class="string"><span class="delimiter">'</span><span class="content">groovy</span><span class="delimiter">'</span></span>
+ -p,--package &lt;arg&gt;        (only groovy) package (ie.
+                           com.your-domain.your-app-name), required if
+                           ontology does not have default package property
+ -t,--target &lt;arg&gt;         output target: 'groovy' or 'json', default
+                           'groovy'
 
 
-<span class="key">usage</span>: vitalsigns version [options]
- -o,--ontology &lt;arg&gt;   OWL Domain Ontology <span class="predefined-type">File</span>
+usage: vitalsigns version [options]
+ -o,--ontology &lt;arg&gt;   OWL Domain Ontology File
 
 
-<span class="key">usage</span>: vitalsigns status (no options)
+usage: vitalsigns status (no options)
  -q,--quick     quick - skip parsing ontologies
  -v,--verbose   print warnings and other messages
 
 
-<span class="key">usage</span>: vitalsigns listindividuals [options]
- -o,--ontology &lt;arg&gt;   OWL Domain Ontology <span class="predefined-type">File</span>
+usage: vitalsigns listindividuals [options]
+ -o,--ontology &lt;arg&gt;   OWL Domain Ontology File
 
 
-<span class="key">usage</span>: vitalsigns mergeindividuals [options]
+usage: vitalsigns mergeindividuals [options]
  -i,--individuals &lt;arg&gt;   individuals ontology file path
- -o,--ontology &lt;arg&gt;      ontology file name <span class="keyword">in</span>
-                          <span class="error">$</span>VITAL_HOME/domain-ontology/
+ -o,--ontology &lt;arg&gt;      ontology file name in
+                          $VITAL_HOME/domain-ontology/
 
 
-<span class="key">usage</span>: vitalsigns removeindividuals [options]
+usage: vitalsigns removeindividuals [options]
  -i,--individuals &lt;arg&gt;   individuals ontology file path
- -o,--ontology &lt;arg&gt;      ontology file name <span class="keyword">in</span>
-                          <span class="error">$</span>VITAL_HOME/domain-ontology/
+ -o,--ontology &lt;arg&gt;      ontology file name in
+                          $VITAL_HOME/domain-ontology/
 
 
-<span class="key">usage</span>: vitalsigns diff [options]
- -h,--history &lt;arg&gt;   show the Nth prior version found <span class="keyword">in</span> the archive -
+usage: vitalsigns diff [options]
+ -h,--history &lt;arg&gt;   show the Nth prior version found in the archive -
                       used with single ont param only
- -o,--ont &lt;arg&gt;       exactly <span class="integer">1</span> or <span class="integer">2</span> such params <span class="key">required</span>: ontology file
-                      path, when just file name used <span class="local-variable">it</span> will look <span class="keyword">in</span>
-                      <span class="error">$</span>VITAL_HOME/domain-ontology/ *
+ -o,--ont &lt;arg&gt;       exactly 1 or 2 such params required: ontology file
+                      path, when just file name used it will look in
+                      $VITAL_HOME/domain-ontology/ *
 
-<span class="key">usage</span>: vitalsigns merge [options]
+usage: vitalsigns merge [options]
  -m,--merging &lt;arg&gt;   merging ontology
  -o,--ont &lt;arg&gt;       input ontology
 
 
-<span class="key">usage</span>: vitalsigns normalizeontology [options]
- -cb,--commentsbefore   comments inserted before, after <span class="keyword">if</span> flag not
+usage: vitalsigns normalizeontology [options]
+ -cb,--commentsbefore   comments inserted before, after if flag not
                         specified
  -o,--ont &lt;arg&gt;         ontology (will be replaced)
 
 
-<span class="key">usage</span>: vitalsigns validateontology [options]
+usage: vitalsigns validateontology [options]
  -o,--ont &lt;arg&gt;   input ontology
 
 
-<span class="key">usage</span>: vitalsigns verify (no options)
+usage: vitalsigns verify (no options)
 
 
 
-<span class="key">usage</span>: vitalsigns gitenable (no options)
+usage: vitalsigns gitenable (no options)
 
 
 
-<span class="key">usage</span>: vitalsigns gitdisable (no options)
+usage: vitalsigns gitdisable (no options)
 
 
 
-<span class="key">usage</span>: vitalsigns upversion [options]
+usage: vitalsigns upversion [options]
  -o,--ont &lt;arg&gt;   input ontology, either file name or path to domain owl
-                  <span class="keyword">in</span> (<span class="error">$</span>VITAL_HOME/domain-ontology/)
+                  in ($VITAL_HOME/domain-ontology/)
 
 
-<span class="key">usage</span>: vitalsigns downversion [options]
+usage: vitalsigns downversion [options]
  -o,--ont &lt;arg&gt;       input ontology, either file name or path to domain
-                      owl <span class="keyword">in</span> (<span class="error">$</span>VITAL_HOME/domain-ontology/)
+                      owl in ($VITAL_HOME/domain-ontology/)
  -v,--version &lt;arg&gt;   optional version to be reverted to, n.n.n, latest
-                      used <span class="keyword">if</span> not specified
+                      used if not specified
 
 
-<span class="key">usage</span>: vitalsigns checkin [options]
- -o,--ont &lt;arg&gt;   external ontology file, must not be located <span class="keyword">in</span>
-                  <span class="error">$</span>VITAL_HOME
+usage: vitalsigns checkin [options]
+ -o,--ont &lt;arg&gt;   external ontology file, must not be located in
+                  $VITAL_HOME
 
 
-<span class="key">usage</span>: vitalsigns purge [options]
+usage: vitalsigns purge [options]
  -a,--app &lt;arg&gt;   owl and jar files prefix
 
 
-<span class="key">usage</span>: vitalsigns gitpostmerge (no options)
+usage: vitalsigns gitpostmerge (no options)
 
 
 
-<span class="key">usage</span>: vitalsigns mergestatus (no options)
+usage: vitalsigns mergestatus (no options)
 
 
 
-<span class="key">usage</span>: vitalsigns gitmergetool (options)
+usage: vitalsigns gitmergetool (options)
  -b,--base &lt;arg&gt;     base owl file path
  -l,--local &lt;arg&gt;    local owl file path
  -o,--output &lt;arg&gt;   output merged owl file path
  -r,--remote &lt;arg&gt;   remote owl file path
 
 
-<span class="key">usage</span>: vitalsigns gitjarmerge (options)
+usage: vitalsigns gitjarmerge (options)
  -b,--base &lt;arg&gt;     base jar file path
  -l,--local &lt;arg&gt;    local jar file path
  -o,--output &lt;arg&gt;   output merged jar file path
  -r,--remote &lt;arg&gt;   remote jar file path
 
 
-<span class="key">usage</span>: vitalsigns deploy (options)
+usage: vitalsigns deploy (options)
  -app,--application &lt;arg&gt;    Application ID
  -j,--jar &lt;arg&gt;              domain jar file path
  -js,--json-schema &lt;arg&gt;     json schema file path
- -o,--ontology &lt;arg&gt;         OWL Domain Ontology <span class="predefined-type">File</span>
+ -o,--ontology &lt;arg&gt;         OWL Domain Ontology File
  -org,--organization &lt;arg&gt;   Organization ID
 
 
-<span class="key">usage</span>: vitalsigns undeploy (options)
+usage: vitalsigns undeploy (options)
  -j,--jar &lt;arg&gt;            domain jar file path
  -js,--json-schema &lt;arg&gt;   json schema file path
- -o,--ontology &lt;arg&gt;       OWL Domain Ontology <span class="predefined-type">File</span></code></pre>
+ -o,--ontology &lt;arg&gt;       OWL Domain Ontology File</code></pre>
 </div>
 </div>
 </div>
@@ -924,14 +932,14 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalimport [options]
- -b,--batch &lt;arg&gt;     blocks per batch, <span class="keyword">default</span>: <span class="integer">1</span>
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalimport [options]
+ -b,--batch &lt;arg&gt;     blocks per batch, default: 1
  -c,--check           check input files - DOES NOT IMPORT
  -f,--file &lt;arg&gt;      input file or directory, supported extensions
                       .vital[.gz], .nt[.gz]
  -h,--help            Show usage information
  -s,--segment &lt;arg&gt;   target segment
- -v,--verbose         report <span class="keyword">import</span> <span class="include">progress</span> (<span class="include">only</span> <span class="include">in</span> <span class="include">non</span>-<span class="include">big</span>-<span class="include">files</span> <span class="include">mode</span>)</code></pre>
+ -v,--verbose         report import progress (only in non-big-files mode)</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -943,11 +951,11 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalexport [options]
- -b,--block &lt;arg&gt;     block size (only .vital[.gz]), <span class="keyword">default</span> <span class="integer">10</span>
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalexport [options]
+ -b,--block &lt;arg&gt;     block size (only .vital[.gz]), default 10
  -h,--help            Show usage information
  -o,--output &lt;arg&gt;    output block file or remote temp file name,
-                      supported <span class="key">extensions</span>: .vital[.gz] .nt[.gz]
+                      supported extensions: .vital[.gz] .nt[.gz]
  -ow,--overwrite      overwrite output file
  -s,--segment &lt;arg&gt;   target segment</code></pre>
 </div>
@@ -961,16 +969,16 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalconvert [options]
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalconvert [options]
  -h,--help            display usage
  -i,--input &lt;arg&gt;     input block, n-triple or csv file, valid extensions
                       .vital[.gz] .nt[.gz] .csv[.gz]
  -m,--map &lt;arg&gt;       map file, required with block -&gt; csv conversion
  -o,--output &lt;arg&gt;    output block, n-trilple or csv file, , valid
                       extensions .vital[.gz] .nt[.gz] .csv[.gz]
- -oh,--outputHeader   prepend csv header (block-&gt;csv <span class="keyword">case</span> only)
- -ow,--overwrite      overwrite output file <span class="keyword">if</span> exists
- -sh,--skipHeader     skip input csv header (csv-&gt;block <span class="keyword">case</span> only and map
+ -oh,--outputHeader   prepend csv header (block-&gt;csv case only)
+ -ow,--overwrite      overwrite output file if exists
+ -sh,--skipHeader     skip input csv header (csv-&gt;block case only and map
                       file specified)</code></pre>
 </div>
 </div>
@@ -983,12 +991,12 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalmerge [options]
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalmerge [options]
  -i,--input &lt;arg&gt;    input block file
  -o,--output &lt;arg&gt;   output block file
  -or,--override      ignore ontology version conflicts and transform
                      global annotations into block annotations
- -ow,--overwrite     overwrite output file <span class="keyword">if</span> exists</code></pre>
+ -ow,--overwrite     overwrite output file if exists</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1000,22 +1008,22 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalquery [options]
- -g,--group &lt;arg&gt;        group graph matches into blocks, explicit <span class="type">boolean</span>
-                         flag parameter [<span class="predefined-constant">true</span>|<span class="predefined-constant">false</span>], requires mainProp,
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalquery [options]
+ -g,--group &lt;arg&gt;        group graph matches into blocks, explicit boolean
+                         flag parameter [true|false], requires mainProp,
                          only graph query
  -h,--help               Show usage information
- -mp,--mainProp &lt;arg&gt;    main bound property, required when --group=<span class="predefined-constant">true</span>
+ -mp,--mainProp &lt;arg&gt;    main bound property, required when --group=true
  -o,--output &lt;arg&gt;       output (.vital[.gz]|.sparql|.txt) block or sparql
                          or txt file (depending on -s flag and query
-                         type), <span class="local-variable">it</span> prints to console otherwise, txt file
-                         <span class="keyword">for</span> select distinct <span class="keyword">case</span> only
+                         type), it prints to console otherwise, txt file
+                         for select distinct case only
  -ow,--overwrite         overwrite output file
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -q,--query &lt;arg&gt;        qurery file (.groovy|.builder) - groovy or query
                          builder defined query
- -s,--tosparql           output the query <span class="keyword">as</span> sparql instead of executing
-                         <span class="local-variable">it</span></code></pre>
+ -s,--tosparql           output the query as sparql instead of executing
+                         it</code></pre>
 </div>
 </div>
 </div>
@@ -1030,50 +1038,50 @@ VDK uninstall script.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitaldatascript &lt;command&gt; [options] ...
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitaldatascript &lt;command&gt; [options] ...
 usage: vitaldatascript help (prints usage)
-<span class="key">usage</span>: vitaldatascript listdatascripts [options]
- -p,--path &lt;arg&gt;         scripts base <span class="key">path</span>: admin/ * &lt;app&gt;<span class="regexp"><span class="delimiter">/</span><span class="content"> * or</span></span><span class="error">
-</span>                         commons/admin/ * or commons/scripts/ *
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitaldatascript listjobs [options]
- -p,--path &lt;arg&gt;         jobs base <span class="key">path</span>: admin/ * &lt;app&gt;<span class="regexp"><span class="delimiter">/</span><span class="content"> * or</span></span><span class="error">
-</span>                         commons/admin/ * or commons/scripts/ *
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitaldatascript getdatascript [options]
+usage: vitaldatascript listdatascripts [options]
+ -p,--path &lt;arg&gt;         scripts base path: admin/ * &lt;app&gt;/ * or
+                         commons/admin/ * or commons/scripts/ *
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitaldatascript listjobs [options]
+ -p,--path &lt;arg&gt;         jobs base path: admin/ * &lt;app&gt;/ * or
+                         commons/admin/ * or commons/scripts/ *
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitaldatascript getdatascript [options]
  -o,--output &lt;arg&gt;       optional output file to save the script body to
- -ow,--overwrite         overwrite output file <span class="keyword">if</span> exists
- -p,--path &lt;arg&gt;         scripts base <span class="key">path</span>: admin/&lt;script_name&gt;
-                         &lt;app&gt;<span class="regexp"><span class="delimiter">/</span><span class="content">&lt;script_name&gt; or</span></span><span class="error">
-</span>                         commons/admin/&lt;script_name&gt; or
+ -ow,--overwrite         overwrite output file if exists
+ -p,--path &lt;arg&gt;         scripts base path: admin/&lt;script_name&gt;
+                         &lt;app&gt;/&lt;script_name&gt; or
+                         commons/admin/&lt;script_name&gt; or
                          commons/scripts/&lt;script_name&gt;
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitaldatascript adddatascript [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitaldatascript adddatascript [options]
  -f,--file &lt;arg&gt;         script input file path
- -p,--path &lt;arg&gt;         script <span class="key">path</span>: admin/&lt;script_name&gt;
-                         &lt;app&gt;<span class="regexp"><span class="delimiter">/</span><span class="content">&lt;script_name&gt; or</span></span><span class="error">
-</span>                         commons/admin/&lt;script_name&gt; or
+ -p,--path &lt;arg&gt;         script path: admin/&lt;script_name&gt;
+                         &lt;app&gt;/&lt;script_name&gt; or
+                         commons/admin/&lt;script_name&gt; or
                          commons/scripts/&lt;script_name&gt;
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitaldatascript removedatascript [options]
- -p,--path &lt;arg&gt;         script <span class="key">path</span>: admin/&lt;script_name&gt;
-                         &lt;app&gt;<span class="regexp"><span class="delimiter">/</span><span class="content">&lt;script_name&gt; or</span></span><span class="error">
-</span>                         commons/admin/&lt;script_name&gt; or
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitaldatascript removedatascript [options]
+ -p,--path &lt;arg&gt;         script path: admin/&lt;script_name&gt;
+                         &lt;app&gt;/&lt;script_name&gt; or
+                         commons/admin/&lt;script_name&gt; or
                          commons/scripts/&lt;script_name&gt;
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitaldatascript rundatascript [options]
- -i,--input &lt;arg&gt;        input params groovy file - must <span class="keyword">return</span> a map of
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitaldatascript rundatascript [options]
+ -i,--input &lt;arg&gt;        input params groovy file - must return a map of
                          parameters
- -p,--path &lt;arg&gt;         script <span class="key">path</span>: admin/&lt;script_name&gt;
-                         &lt;app&gt;<span class="regexp"><span class="delimiter">/</span><span class="content">&lt;script_name&gt; or</span></span><span class="error">
-</span>                         commons/admin/&lt;script_name&gt; or
+ -p,--path &lt;arg&gt;         script path: admin/&lt;script_name&gt;
+                         &lt;app&gt;/&lt;script_name&gt; or
+                         commons/admin/&lt;script_name&gt; or
                          commons/scripts/&lt;script_name&gt;
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitaldatascript listtasks [options]
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
- -t,--taskID &lt;arg&gt;       optional taskID used <span class="keyword">as</span> a filter
-<span class="key">usage</span>: vitaldatascript killtask [options]
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitaldatascript listtasks [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+ -t,--taskID &lt;arg&gt;       optional taskID used as a filter
+usage: vitaldatascript killtask [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -t,--taskID &lt;arg&gt;       taskID to kill</code></pre>
 </div>
 </div>
@@ -1086,24 +1094,24 @@ usage: vitaldatascript help (prints usage)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalftp &lt;command&gt; [options] ...
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalftp &lt;command&gt; [options] ...
 usage: vitalftp help (prints usage)
-<span class="key">usage</span>: vitalftp put [options]
+usage: vitalftp put [options]
  -f,--file &lt;arg&gt;         local file to upload
- -ow,--overwrite         overwrite remote file <span class="keyword">if</span> exists
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalftp get [options]
+ -ow,--overwrite         overwrite remote file if exists
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalftp get [options]
  -d,--directory &lt;arg&gt;    output directory to save the file
  -n,--name &lt;arg&gt;         remote file name
- -ow,--overwrite         overwrite the output file <span class="keyword">if</span> exists
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalftp ls [options]
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalftp del [options]
+ -ow,--overwrite         overwrite the output file if exists
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalftp ls [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalftp del [options]
  -n,--name &lt;arg&gt;         remote file name
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalftp purge (no options)
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span></code></pre>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalftp purge (no options)
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1115,53 +1123,53 @@ usage: vitalftp help (prints usage)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitallucene &lt;command&gt; [options] ...
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitallucene &lt;command&gt; [options] ...
 usage: vitallucene help (prints usage)
-<span class="key">usage</span>: vitallucene init [options]
+usage: vitallucene init [options]
  -f,--force              override existing directory
- -l,--location &lt;arg&gt;     either target directory or <span class="string"><span class="delimiter">'</span><span class="content">conf</span><span class="delimiter">'</span></span> value to use
+ -l,--location &lt;arg&gt;     either target directory or 'conf' value to use
                          service config
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitallucene listapps [options]
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitallucene addapp [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitallucene listapps [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitallucene addapp [options]
  -a,--app &lt;arg&gt;          app ID
  -n,--name &lt;arg&gt;         app name
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitallucene removeapp [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitallucene removeapp [options]
  -a,--app &lt;arg&gt;          app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitallucene listsegments [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitallucene listsegments [options]
  -a,--appID &lt;arg&gt;        app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitallucene removesegment [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitallucene removesegment [options]
  -a,--appID &lt;arg&gt;        app ID
  -d,--deleteData         delete data
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -s,--segmentID &lt;arg&gt;    segment ID
-<span class="key">usage</span>: vitallucene addsegment [options]
+usage: vitallucene addsegment [options]
  -a,--appID &lt;arg&gt;        app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -ro,--readOnly          read only
  -s,--segmentID &lt;arg&gt;    segment ID
- -t,--type &lt;arg&gt;         segment <span class="key">type</span>: [disk, memory]
-<span class="key">usage</span>: vitallucene datamigrate [options]
+ -t,--type &lt;arg&gt;         segment type: [disk, memory]
+usage: vitallucene datamigrate [options]
  -a,--appID &lt;arg&gt;                     app ID
  -b,--builder &lt;arg&gt;                   builder file, .groovy or .builder
                                       extension
- -d,--direction &lt;arg&gt;                 [upgrade, dowgrade], required <span class="keyword">in</span>
+ -d,--direction &lt;arg&gt;                 [upgrade, dowgrade], required in
                                       builderless mode
- -dss,--delete-source-segment &lt;arg&gt;   [<span class="predefined-constant">true</span>, <span class="predefined-constant">false</span>] overrides
-                                      deleteSourceSegment <span class="keyword">in</span> a builder
+ -dss,--delete-source-segment &lt;arg&gt;   [true, false] overrides
+                                      deleteSourceSegment in a builder
  -h,--help                            display usage
- -i,--input &lt;arg&gt;                     overrides source segment <span class="keyword">in</span> a
+ -i,--input &lt;arg&gt;                     overrides source segment in a
                                       builder
- -o,--output &lt;arg&gt;                    overrides destination segment <span class="keyword">in</span> a
+ -o,--output &lt;arg&gt;                    overrides destination segment in a
                                       builder
  -owlfile,--owl-file &lt;arg&gt;            older owl file name option, required
-                                      <span class="keyword">in</span> builderless mode
- -prof,--profile &lt;arg&gt;                vitalservice profile, <span class="keyword">default</span>:
-                                      <span class="keyword">default</span></code></pre>
+                                      in builderless mode
+ -prof,--profile &lt;arg&gt;                vitalservice profile, default:
+                                      default</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1173,118 +1181,118 @@ usage: vitallucene help (prints usage)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalprime &lt;command&gt; [options] ...
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalprime &lt;command&gt; [options] ...
 usage: vitalprime help (prints usage)
-<span class="key">usage</span>: vitalprime listapps [options]
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime addapp [options]
+usage: vitalprime listapps [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime addapp [options]
  -a,--app &lt;arg&gt;          app ID
  -n,--name &lt;arg&gt;         app name
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime removeapp [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime removeapp [options]
  -a,--app &lt;arg&gt;          app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime listsegments [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime listsegments [options]
  -a,--appID &lt;arg&gt;        app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime removesegment [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime removesegment [options]
  -a,--appID &lt;arg&gt;        app ID
  -d,--deleteData         delete data
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -s,--segmentID &lt;arg&gt;    segment ID
-<span class="key">usage</span>: vitalprime addsegment [options]
+usage: vitalprime addsegment [options]
  -a,--appID &lt;arg&gt;              app ID
  -p,--provisioningFile &lt;arg&gt;   optional  provisioning config file - used
                                when vitalprime hosts DynamoDB or IndexDB
                                with DynamoDB backend
- -prof,--profile &lt;arg&gt;         vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;         vitalservice profile, default: default
  -ro,--readOnly                read only
  -s,--segmentID &lt;arg&gt;          segment ID
  -t,--type &lt;arg&gt;               optional inner segment (endpoint) type,
-                               required <span class="keyword">if</span> prime hosts more than <span class="integer">1</span>
+                               required if prime hosts more than 1
                                endpoint
-<span class="key">usage</span>: vitalprime reindexsegment [options]
+usage: vitalprime reindexsegment [options]
  -a,--appID &lt;arg&gt;        app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -s,--segmentID &lt;arg&gt;    segment ID
-<span class="key">usage</span>: vitalprime verifyindexes (no options)
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime rebuildindexes (no options)
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime status (no options)
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime shutdown (no options)
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime get [options]
+usage: vitalprime verifyindexes (no options)
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime rebuildindexes (no options)
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime status (no options)
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime shutdown (no options)
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime get [options]
  -a,--appID &lt;arg&gt;        app ID
  -o,--output &lt;arg&gt;       optional output block file .vital[.gz], by
-                         <span class="keyword">default</span> prints to console
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
- -u,--uri &lt;arg&gt;          graph object <span class="predefined-type">URI</span>
-<span class="key">usage</span>: vitalprime update [options]
+                         default prints to console
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+ -u,--uri &lt;arg&gt;          graph object URI
+usage: vitalprime update [options]
  -a,--appID &lt;arg&gt;        app ID
  -i,--input &lt;arg&gt;        input block file with single block and single
                          graph object .vital[.gz]
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -s,--segment &lt;arg&gt;      segment ID
-<span class="key">usage</span>: vitalprime insert [options]
+usage: vitalprime insert [options]
  -a,--appID &lt;arg&gt;        app ID
  -i,--input &lt;arg&gt;        input block file with single block and single
                          graph object .vital[.gz]
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
  -s,--segment &lt;arg&gt;      segment ID
-<span class="key">usage</span>: vitalprime delete [options]
+usage: vitalprime delete [options]
  -a,--appID &lt;arg&gt;        app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
- -u,--uri &lt;arg&gt;          graph object <span class="predefined-type">URI</span>
-<span class="key">usage</span>: vitalprime listmodels [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+ -u,--uri &lt;arg&gt;          graph object URI
+usage: vitalprime listmodels [options]
  -a,--appID &lt;arg&gt;        app ID
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime deploy [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime deploy [options]
  -a,--appID &lt;arg&gt;        app ID
- -art,--artifact &lt;arg&gt;   artifact file name (jar/owl/js) or file path <span class="keyword">in</span>
-                         <span class="error">$</span>VITAL_HOME/domain-groovy-jar/,
-                         <span class="error">$</span>VITAL_HOME/domain-json-schema/ or
-                         <span class="error">$</span>VITAL_HOME/domain-ontology/
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
- -sa,--singleartifact    deploy <span class="local-variable">this</span> single artifact only
-<span class="key">usage</span>: vitalprime undeploy [options]
+ -art,--artifact &lt;arg&gt;   artifact file name (jar/owl/js) or file path in
+                         $VITAL_HOME/domain-groovy-jar/,
+                         $VITAL_HOME/domain-json-schema/ or
+                         $VITAL_HOME/domain-ontology/
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+ -sa,--singleartifact    deploy this single artifact only
+usage: vitalprime undeploy [options]
  -a,--appID &lt;arg&gt;        app ID
- -art,--artifact &lt;arg&gt;   artifact file name (jar/owl/js) or file path <span class="keyword">in</span>
-                         <span class="error">$</span>VITAL_HOME/domain-groovy-jar/,
-                         <span class="error">$</span>VITAL_HOME/domain-json-schema/ or
-                         <span class="error">$</span>VITAL_HOME/domain-ontology/
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
- -sa,--singleartifact    undeploy <span class="local-variable">this</span> single artifact only
-<span class="key">usage</span>: vitalprime load [options]
- -a,--appID &lt;arg&gt;        app ID
- -j,--jar &lt;arg&gt;          remote jar name
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime unload [options]
+ -art,--artifact &lt;arg&gt;   artifact file name (jar/owl/js) or file path in
+                         $VITAL_HOME/domain-groovy-jar/,
+                         $VITAL_HOME/domain-json-schema/ or
+                         $VITAL_HOME/domain-ontology/
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+ -sa,--singleartifact    undeploy this single artifact only
+usage: vitalprime load [options]
  -a,--appID &lt;arg&gt;        app ID
  -j,--jar &lt;arg&gt;          remote jar name
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime syncmodels [options]
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime unload [options]
  -a,--appID &lt;arg&gt;        app ID
- -d,--direction &lt;arg&gt;    direction, one of, pull (<span class="keyword">default</span>), push, both
- -prof,--profile &lt;arg&gt;   vitalservice profile, <span class="keyword">default</span>: <span class="keyword">default</span>
-<span class="key">usage</span>: vitalprime datamigrate [options]
+ -j,--jar &lt;arg&gt;          remote jar name
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime syncmodels [options]
+ -a,--appID &lt;arg&gt;        app ID
+ -d,--direction &lt;arg&gt;    direction, one of, pull (default), push, both
+ -prof,--profile &lt;arg&gt;   vitalservice profile, default: default
+usage: vitalprime datamigrate [options]
  -a,--appID &lt;arg&gt;                     app ID
  -b,--builder &lt;arg&gt;                   builder file, .groovy or .builder
                                       extension
- -d,--direction &lt;arg&gt;                 [upgrade, dowgrade], required <span class="keyword">in</span>
+ -d,--direction &lt;arg&gt;                 [upgrade, dowgrade], required in
                                       builderless mode
- -dss,--delete-source-segment &lt;arg&gt;   [<span class="predefined-constant">true</span>, <span class="predefined-constant">false</span>] overrides
-                                      deleteSourceSegment <span class="keyword">in</span> a builder
+ -dss,--delete-source-segment &lt;arg&gt;   [true, false] overrides
+                                      deleteSourceSegment in a builder
  -h,--help                            display usage
- -i,--input &lt;arg&gt;                     overrides source segment <span class="keyword">in</span> a
+ -i,--input &lt;arg&gt;                     overrides source segment in a
                                       builder
- -o,--output &lt;arg&gt;                    overrides destination segment <span class="keyword">in</span> a
+ -o,--output &lt;arg&gt;                    overrides destination segment in a
                                       builder
  -owlfile,--owl-file &lt;arg&gt;            older owl file name option, required
-                                      <span class="keyword">in</span> builderless mode
- -prof,--profile &lt;arg&gt;                vitalservice profile, <span class="keyword">default</span>:
-                                      <span class="keyword">default</span></code></pre>
+                                      in builderless mode
+ -prof,--profile &lt;arg&gt;                vitalservice profile, default:
+                                      default</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1296,30 +1304,30 @@ usage: vitalprime help (prints usage)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitaldynamodb &lt;command&gt; [options] ...
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitaldynamodb &lt;command&gt; [options] ...
 
 usage: vitaldynamodb help (prints usage)
 
-<span class="key">usage</span>: vitaldynamodb init (no options)
+usage: vitaldynamodb init (no options)
 
-<span class="key">usage</span>: vitaldynamodb listapps [options]
+usage: vitaldynamodb listapps [options]
 
-<span class="key">usage</span>: vitaldynamodb addapp [options]
+usage: vitaldynamodb addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
 
-<span class="key">usage</span>: vitaldynamodb removeapp [options]
+usage: vitaldynamodb removeapp [options]
  -a,--app &lt;arg&gt;   app ID
 
-<span class="key">usage</span>: vitaldynamodb listsegments [options]
+usage: vitaldynamodb listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
 
-<span class="key">usage</span>: vitaldynamodb removesegment [options]
+usage: vitaldynamodb removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
 
-<span class="key">usage</span>: vitaldynamodb addsegment [options]
+usage: vitaldynamodb addsegment [options]
  -a,--appID &lt;arg&gt;              app ID
  -p,--provisioningFile &lt;arg&gt;   provisioning config file
  -ro,--readOnly                read only
@@ -1329,36 +1337,36 @@ usage: vitaldynamodb help (prints usage)
 <div class="ulist">
 <ul>
 <li>
-<p><strong>vitaltriplestore:</strong> Manage triplestore Vital Service implementation</p>
+<p><strong>vitalsparqlstore:</strong> Manage sparqlstore Vital Service implementation</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitaltriplestore &lt;command&gt; [options] ...
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalsparqlstore &lt;command&gt; [options] ...
 
-usage: vitaltriplestore help (prints usage)
+usage: vitalsparqlstore help (prints usage)
 
-<span class="key">usage</span>: vitaltriplestore listapps [options]
+usage: vitalsparqlstore listapps [options]
 
-<span class="key">usage</span>: vitaltriplestore init
+usage: vitalsparqlstore init
 
-<span class="key">usage</span>: vitaltriplestore addapp [options]
+usage: vitalsparqlstore addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
 
-<span class="key">usage</span>: vitaltriplestore removeapp [options]
+usage: vitalsparqlstore removeapp [options]
  -a,--app &lt;arg&gt;   app ID
 
-<span class="key">usage</span>: vitaltriplestore listsegments [options]
+usage: vitalsparqlstore listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
 
-<span class="key">usage</span>: vitaltriplestore removesegment [options]
+usage: vitalsparqlstore removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
 
-<span class="key">usage</span>: vitaltriplestore addsegment [options]
+usage: vitalsparqlstore addsegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -ro,--readOnly         read only
  -s,--segmentID &lt;arg&gt;   segment ID</code></pre>
@@ -1373,44 +1381,44 @@ usage: vitaltriplestore help (prints usage)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vitalindexdb &lt;command&gt; [options] ...
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vitalindexdb &lt;command&gt; [options] ...
 
 usage: vitalindexdb help (prints usage)
 
-<span class="key">usage</span>: vitalindexdb listapps [options]
+usage: vitalindexdb listapps [options]
 
-<span class="key">usage</span>: vitalindexdb init
+usage: vitalindexdb init
  -f,--force   override existing directory
 
-<span class="key">usage</span>: vitalindexdb addapp [options]
+usage: vitalindexdb addapp [options]
  -a,--app &lt;arg&gt;    app ID
  -n,--name &lt;arg&gt;   app name
 
-<span class="key">usage</span>: vitalindexdb removeapp [options]
+usage: vitalindexdb removeapp [options]
  -a,--app &lt;arg&gt;   app ID
 
-<span class="key">usage</span>: vitalindexdb listsegments [options]
+usage: vitalindexdb listsegments [options]
  -a,--appID &lt;arg&gt;   app ID
 
-<span class="key">usage</span>: vitalindexdb removesegment [options]
+usage: vitalindexdb removesegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -d,--deleteData        delete data
  -s,--segmentID &lt;arg&gt;   segment ID
 
-<span class="key">usage</span>: vitalindexdb addsegment [options]
+usage: vitalindexdb addsegment [options]
  -a,--appID &lt;arg&gt;              app ID
  -p,--provisioningFile &lt;arg&gt;   (dynamodb database type only) provisioning
                                config file
  -ro,--readOnly                read only
  -s,--segmentID &lt;arg&gt;          segment ID
 
-<span class="key">usage</span>: vitalindexdb reindexsegment [options]
+usage: vitalindexdb reindexsegment [options]
  -a,--appID &lt;arg&gt;       app ID
  -s,--segmentID &lt;arg&gt;   segment ID
 
-<span class="key">usage</span>: vitalindexdb verifyindexes (no options)
+usage: vitalindexdb verifyindexes (no options)
 
-<span class="key">usage</span>: vitalindexdb rebuildindexes (no options)</code></pre>
+usage: vitalindexdb rebuildindexes (no options)</code></pre>
 </div>
 </div>
 </div>
@@ -1427,7 +1435,7 @@ Simple script to change a soft link for location of VITAL_HOME to make it easy t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="key">usage</span>: vital-<span class="keyword">switch</span> &lt;name&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">usage: vital-switch &lt;name&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -1476,7 +1484,7 @@ interface for Microsoft Windows.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns &lt;command&gt; [options]</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns &lt;command&gt; [options]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1493,7 +1501,7 @@ interface for Microsoft Windows.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns help</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns help</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1508,7 +1516,7 @@ interface for Microsoft Windows.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns generate -o | --ontology &lt;input ontology&gt; -p | --<span class="keyword">package</span> &lt;<span class="keyword">package</span>&gt; -t groovy</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns generate -o | --ontology &lt;input ontology&gt; -p | --package &lt;package&gt; -t groovy</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1520,7 +1528,7 @@ ontology and <em>package</em> is the name of your application&#8217;s package (i
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns generate -j | --jar &lt;output jar&gt; -o | --ontology &lt;input ontology&gt; -p | --<span class="keyword">package</span> &lt;<span class="keyword">package</span>&gt; -t groovy</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns generate -j | --jar &lt;output jar&gt; -o | --ontology &lt;input ontology&gt; -p | --package &lt;package&gt; -t groovy</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1539,7 +1547,7 @@ no changes have been made to the ontology, specify the -or | --override option.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns generate -o | --ontology &lt;input ontology&gt; -or | --override -p | --<span class="keyword">package</span> &lt;<span class="keyword">package</span>&gt; -t json</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns generate -o | --ontology &lt;input ontology&gt; -or | --override -p | --package &lt;package&gt; -t json</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1550,7 +1558,7 @@ no changes have been made to the ontology, specify the -or | --override option.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns generate -js | --json-schema &lt;output json&gt; -o | --ontology &lt;input ontology&gt; -p | --<span class="keyword">package</span> &lt;<span class="keyword">package</span>&gt; -t groovy</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns generate -js | --json-schema &lt;output json&gt; -o | --ontology &lt;input ontology&gt; -p | --package &lt;package&gt; -t groovy</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1573,7 +1581,7 @@ no changes have been made to the ontology, specify the -or | --override option.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns listindividuals -o &lt;input ontology&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns listindividuals -o &lt;input ontology&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1585,7 +1593,7 @@ no changes have been made to the ontology, specify the -or | --override option.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns listindividuals -o vital-samples-<span class="float">0.1</span><span class="float">.0</span>.owl</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns listindividuals -o vital-samples-0.1.0.owl</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1607,7 +1615,7 @@ no changes have been made to the ontology, specify the -or | --override option.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns removeindividuals -i &lt;ontology file path&gt; - o &lt;ontology file name&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns removeindividuals -i &lt;ontology file path&gt; - o &lt;ontology file name&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1633,7 +1641,7 @@ and a new onotlogy with the ontology&#8217;s individuals removed is generated.</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns merge -m | --merging &lt;merging ontology&gt; -o | --ont &lt;input ontology&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns merge -m | --merging &lt;merging ontology&gt; -o | --ont &lt;input ontology&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1661,7 +1669,7 @@ ontology enter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns validateontology -o | --ont &lt;input ontology&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns validateontology -o | --ont &lt;input ontology&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1678,7 +1686,7 @@ ontology enter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns gitenable</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns gitenable</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1694,7 +1702,7 @@ staging area. You will still need to commit these changes.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns gitenable</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns gitenable</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1709,7 +1717,7 @@ changes in the working directory to the staging area.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns upversion -o | --ont &lt;input ontology&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns upversion -o | --ont &lt;input ontology&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1735,7 +1743,7 @@ version numbers, the ontology must be manually edited.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns downversion -o | --ont &lt;input ontology&gt;
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns downversion -o | --ont &lt;input ontology&gt;
 vitalsigns downversion -o | --ont &lt;input ontology&gt; -v | --version &lt;version number&gt;</code></pre>
 </div>
 </div>
@@ -1764,7 +1772,7 @@ version numbers, the ontology must be manually edited.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns checkin -o | --ont &lt;external ontology&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns checkin -o | --ont &lt;external ontology&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1783,7 +1791,7 @@ any domain jars or JSON schema generated from an ontology enter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">vitalsigns purge -a | --app &lt;prefix&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">vitalsigns purge -a | --app &lt;prefix&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3205,30 +3213,28 @@ defSpanType <span class="string"><span class="delimiter">'</span><span class="co
 <div class="paragraph">
 <p>Example Dictionary file: fashion_brands.txt</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">Hello World
-Armani Exchange
-Ramosport
-ZipperGirl
-Elaine Klimaszewski
-Cosa Nostra
-Wet Seal, Inc.
-Rocawear
-Mr. Song Millinery
-Michael Bastian
-Kirribilla
-Heatherette
-Traver Rains
-Abaete
-Anait Bian
-ADAM
-Andrew Gn Designs
-Nina Ricci
-Olivier Theyskens
-Marc Jacobs
-...</code></pre>
-</div>
+<div class="paragraph">
+<p>Hello World<br>
+Armani Exchange<br>
+Ramosport<br>
+ZipperGirl<br>
+Elaine Klimaszewski<br>
+Cosa Nostra<br>
+Wet Seal, Inc.<br>
+Rocawear<br>
+Mr. Song Millinery<br>
+Michael Bastian<br>
+Kirribilla<br>
+Heatherette<br>
+Traver Rains<br>
+Abaete<br>
+Anait Bian<br>
+ADAM<br>
+Andrew Gn Designs<br>
+Nina Ricci<br>
+Olivier Theyskens<br>
+Marc Jacobs<br>
+&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>Modify the configuration of the NLP ProcessServer to include it.</p>
@@ -3750,7 +3756,7 @@ resultSet = service.callFunction(<span class="string"><span class="delimiter">&q
 </div>
 </div>
 <div class="sect1">
-<h2 id="_vital_service_triplestore_implementation">36. Vital Service Triplestore Implementation</h2>
+<h2 id="_vital_service_sparqlstore_implementation">36. Vital Service Sparqlstore Implementation</h2>
 <div class="sectionbody">
 
 </div>
@@ -3980,7 +3986,7 @@ resultSet = service.callFunction(<span class="string"><span class="delimiter">&q
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-11-30 17:36:30 EST
+Last updated 2016-01-19 14:33:51 EST
 </div>
 </div>
 </body>
