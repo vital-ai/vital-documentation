@@ -1,0 +1,7 @@
+ai.vital.service.vertx
+ai.vital.service.vertx.async
+ai.vital.service.vertx.binary
+ai.vital.service.vertx.handler
+ai.vital.service.vertx.handler.functions
+ai.vital.service.vertx.main
+ai.vital.service.vertx.test
