@@ -1,0 +1,6 @@
+ai.vital.allegrograph.client
+ai.vital.triplestore.allegrograph
+ai.vital.triplestore.allegrograph.query
+ai.vital.triplestore.model
+ai.vital.triplestore.sparql
+org.openjena.jenasesame.impl
