@@ -16,13 +16,20 @@ license file which will enable you to use the VDK on your computer.
 
 *On Mac OSX, Linux, or Cygwin*
 
-* Download the VDK distribution (tar.gz/zip), the VDK install script and the     
-license file. Do not decompress the distribution.  
+* Download the following:
+
+. VDK distribution (tar.gz/zip) (Do not decompress the distribution)
+
+. VDK install script
+
+. License file
 
 * Set your _VITAL_HOME_ environment variable to a directory on your file system.
 
 * Add _VITAL_HOME/vitalsigns/bin_ and _VITAL_HOME/vitalservice/bin_  
 to your _PATH_ environment variable.
+
+_For Mac OSX users, refer to: https://github.com/ersiner/osx-env-sync for information on synchronizing OSX environment variables for command line and GUI applications from a single source. Without this step, GUI applications will not be able to run using the VITAL_HOME environment variable._
 
 * In a terminal window, navigate to the directory into which you downloaded the   
 VDK distribution and the VDK install script. 
