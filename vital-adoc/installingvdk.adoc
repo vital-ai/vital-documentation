@@ -31,14 +31,14 @@ VDK distribution and the VDK install script.
 
 [source,sh]
 ----
-chmod u+x ./vdk-install-0.2.301.sh 
+chmod u+x ./vdk-install-0.2.302.sh 
 ----
 
 * Install the VDK in your _VITAL_HOME_ directory by entering:
 
 [source,sh]
 ----
-./vdk-install-0.2.301.sh $VITAL_HOME .  
+./vdk-install-0.2.302.sh $VITAL_HOME .  
 ----
 
 *  Place the downloaded license file into the vital-license directory within   
@@ -58,12 +58,12 @@ VDK uninstall script.
 
 [source,sh]
 ----
-chmod u+x ./vdk-uninstall-0.2.301.sh  
+chmod u+x ./vdk-uninstall-0.2.302.sh  
 ----
 
 * Uninstall the VDK by entering:  
 
 [source,sh]
 ----
-./vdk-uninstall-0.2.301.sh $VITAL_HOME .
+./vdk-uninstall-0.2.302.sh $VITAL_HOME .
 ----
