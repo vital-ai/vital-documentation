@@ -6,11 +6,11 @@
 <body>
 <h1>Datatype: PlainLiteral</h1>
 <h2 class='summaryURI'>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</h2>
-<h2>Usage (64)</h2>
-<div class='codebox' id='usage_(64)'>
+<h2>Usage (72)</h2>
+<div class='codebox' id='usage_(72)'>
 <ul>
 <li>
-http://vital.ai/ontology/<b>vital-core</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/versionInfo___407301298.html" title="http://www.w3.org/2002/07/owl#versionInfo">versionInfo</a> <span class='literal'>"0.2.301" <span style='color: black;'>()</span></span><span class='comment'>&nbsp;*/</span></li>
+http://vital.ai/ontology/<b>vital-core</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/versionInfo___407301298.html" title="http://www.w3.org/2002/07/owl#versionInfo">versionInfo</a> <span class='literal'>"0.2.303" <span style='color: black;'>()</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital#<b>BusinessOrganization</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"(“Apple, Inc.”)" <span style='color: black;'>()</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
@@ -52,6 +52,8 @@ http://vital.ai/ontology/vital#<b>UserLogin</b><span class='comment'> /*&nbsp;</
 <li>
 http://vital.ai/ontology/vital#<b>hasCertainty</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"certainty of a graph object - for example it has low value if it comes from a noisy dataset" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
+http://vital.ai/ontology/vital#<b>hasCronExpression</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"with cron expression a job may be scheduled according to it, rather than simple recurrent job" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
 http://vital.ai/ontology/vital#<b>hasInfo</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"a custom info (stats) object that may be returned by a datascript" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital#<b>hasIntervalTimeUnit</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"one of: SECOND, MINUTE, HOUR, DAY" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
@@ -60,9 +62,9 @@ http://vital.ai/ontology/vital#<b>hasJobStatus</b><span class='comment'> /*&nbsp
 <li>
 http://vital.ai/ontology/vital#<b>hasLastCompilationError</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"if null then the script has been compiled successfully" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
-http://vital.ai/ontology/vital#<b>hasProvenance</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"source dataset URI" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
-<li>
 http://vital.ai/ontology/vital#<b>isCallable</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"a flag that indicates if a job also implements Script interface - may be callable" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
+http://vital.ai/ontology/vital#<b>isLocked</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"locked login cannot be modified" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>DatabaseConnection</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"Represents a named database connection object" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
@@ -96,8 +98,20 @@ http://vital.ai/ontology/vital-core#<b>hasAggregationType</b><span class='commen
 <li>
 http://vital.ai/ontology/vital-core#<b>hasBackwardCompatibilityVersion</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"determines the minimal domain version this domain is backward compatible with, value pattern: \d+\.\d+\.\d+" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
+http://vital.ai/ontology/vital-core#<b>hasConnectionState</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"connected
+disconnected" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
 http://vital.ai/ontology/vital-core#<b>hasContainsListFlag</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"special annotation for a string property that may store a csv encoded list of values. This annotation changes the getter and setter to List&lt;&gt;.
 The value of the annotation may only be set to an xsd or vital supported property" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
+http://vital.ai/ontology/vital-core#<b>hasDbType</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"MySQL,
+MySQLMemSQL,
+MySQLAurora,
+AmazonRedshift,
+PostgreSQL,
+ApacheSparkSQL,
+EMRSparkSQL,
+HiveSQL" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>hasDefaultPackage</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"owl:Ontology annotation (string) providing default groovy/java package name, used in domain classes generation, value must not start with "ai.vital."" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
@@ -105,11 +119,15 @@ http://vital.ai/ontology/vital-core#<b>hasDomainOWLHash</b><span class='comment'
 <li>
 http://vital.ai/ontology/vital-core#<b>hasEventPolarity</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"suggested values:  "added" or "retracted"" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
+http://vital.ai/ontology/vital-core#<b>hasGraphQueries</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"'index' or 'database'" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
 http://vital.ai/ontology/vital-core#<b>hasMultipleValues</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"determines if a property has 1 or 0 values or is may contain more than value, values order is not determined" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>hasOntologyIRI</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"a inverse transient property, it is to be used in persistence layer and not propagate outside of it" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>hasPreferredImportVersion</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"provides preferred import version of a dependency, the value must match regex pattern: (?&lt;domain&gt;.+)\\-(?&lt;major&gt;\\d+)\\.(?&lt;minor&gt;\\d+)\\.(?&lt;patch&gt;\\d+)\\.owl" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
+http://vital.ai/ontology/vital-core#<b>hasProvenance</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"source dataset URI" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>hasRdfContext</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"sparql (N-TRIPLE) encoded resource string" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
@@ -121,12 +139,16 @@ http://vital.ai/ontology/vital-core#<b>hasRdfSubject</b><span class='comment'> /
 <li>
 http://vital.ai/ontology/vital-core#<b>hasRestrictionClasses</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"a single class or union of classes the restriction applies to" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
+http://vital.ai/ontology/vital-core#<b>hasSelectQueries</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"'index' or 'database'" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
 http://vital.ai/ontology/vital-core#<b>hasSessionType</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"one of: 'service', 'adminservice' etc" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>hasTransactionState</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"OPEN (successfully created and active),
 COMMITTED (after successful commit operation),
 ROLLED_BACK, (after rolled back by the user or server)
 FAILED (failed on the server side)" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
+http://vital.ai/ontology/vital-core#<b>hasUriGenerationStrategy</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"'local' or 'remote'" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>hasVersionIRI</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"a inverse transient property, it is to be used in persistence layer and not propagate outside of it" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
@@ -138,11 +160,13 @@ http://vital.ai/ontology/vital-core#<b>isInternalStore</b><span class='comment'>
 <li>
 http://vital.ai/ontology/vital-core#<b>isPreferred</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"a property that decides which version goes into block file header, by default the latest version is loaded but it also possible to use an older version header if it is preffered. A use case would be bulk exporting a segment with older data version" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
+http://vital.ai/ontology/vital-core#<b>truth</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"truth datatype, value must be an enum, one of YES, NO, UNKNOWN, MU" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
+<li>
 http://vital.ai/ontology/vital-core#<b>types</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"special property that is not serialized into RDF, represents a list of rdf:type properties assigned to a graph object" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 <li>
 http://vital.ai/ontology/vital-core#<b>vitaltype</b><span class='comment'> /*&nbsp;</span><a href="../annotationproperties/comment___1501100887.html" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a> <span class='literal'>"the property indicating which rdf:type property is the vitalsigns concrete type" <span style='color: black;'>(en)</span></span><span class='comment'>&nbsp;*/</span></li>
 </ul>
-</div><!-- usage (64) -->
+</div><!-- usage (72) -->
 <p class='footer'>
 <a href='http://code.google.com/p/ontology-browser/' target='_blank'>OWL HTML inside</a></p>
 </body></html>
