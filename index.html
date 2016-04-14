@@ -51,6 +51,12 @@
         
         </script>
 
+        <script src="common-files/js/jquery-1.10.2.min.js"></script>
+
+        <script type="text/javascript" src="javascripts/handlebars-v4.0.5.js"></script> 
+        
+        <script type="text/javascript" src="javascripts/templates.js"></script> 
+
     </head>
 
     <body>
@@ -59,77 +65,32 @@
 
         <a name="home"></a>
             
+        <div class="content-placeholder-1"></div>
+    
+<script id="header">
 
-<!-- header-1 -->
-        <header class="header-1">
-            <div class="container">
-                <div class="row">
-                    <div class="navbar col-sm-12 navbar-fixed-top" role="navigation" style="display: none;">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle"></button>
-                            <a class="brand" href="http://vital.ai/"><img src="img/vitalai_offwhite.png" height="50" alt=""></a>
-                         
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav pull-right">
-                                <li>
-                                    <a href="http://vital.ai/#home">HOME</a>
-			      </li>
-			      
-			      
-			      <li>
-                                    <a href="http://vital.ai/#download">DOWNLOAD</a>
-                              </li>
+var theheader = JST['templates/header.hbs'];
+    
 
-				<li>
-                                    <a href="http://vital.ai/#tech">TECH</a>
-                                </li>
-                           
-                                <li>
-                                    <a href="http://vital.ai/#product">PRODUCT</a>
-                                </li>
-                                <li>
-                                    <a href="http://vital.ai/#team">TEAM</a>
-                                </li>
-                                <li>
-                                    <a href="http://vital.ai/#contact">CONTACT</a>
-                                </li>
-                                <li>
-                                    <a href="http://vital.ai/#join">JOIN</a>
-                                </li>
-                                <li>
-                                    <a href="http://vital-ai.github.io/vital-documentation/index.html">DOCUMENTATION</a>
-                                </li>
+var context={
+    vitalSiteURL: 'http://vital.ai',
+		consoleURL: 'https://console.vital.ai'
+};
+    
+  // Pass our data to the template
+  var theCompiledHtml = theheader(context);
+    
 
-                                <li>
-                                    <a target=_blank href="http://vitalai.com">BLOG</a>
-                                </li>
+  // Add the compiled html to the page
+  var cp1 = $('.content-placeholder-1')
+  cp1.html(theCompiledHtml);
+  cp1.find('.logged-out-visible , .logged-in-visible').hide();
+
+  
+  
+</script>    
 
 
-
-                            </ul>
-                            <ul class="subnav">
-                                
-                                
-                                <li>
-                                    <a target=_blank
-                                    href="http://vital-ai.github.io/vital-documentation/">Documentation</a>
-                                </li>
-                                <li>
-                                    <a href="http://vital.ai/site/terms-of-service.html">Terms of Service</a>
-                                </li>
-                                <li>
-                                    <a href="http://vital.ai/site/privacy-policy.html">Privacy Policy</a>
-                                </li>
-                                <li>
-                                    <a href="https://dashboard.vital.ai/mailingAdd.html">Mailing List Management</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
         <section class="header-1-sub" style="height: 0px; overflow: hidden;">
            
             <div id="pt-main" class="page-transitions pt-perspective">
@@ -192,57 +153,28 @@
             </div>
 </section>
 
-<footer class="footer-10">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <nav>
-                    <h6>Vital AI</h6>
-                    <ul>
-                        <li><a href="http://vital.ai/#tech">Tech</a></li>
-                        <li><a target=_blank href="http://vitalai.com">Blog: http://vitalai.com</a></li>
-                        <li><a href="http://vital.ai/#team">Team</a></li>
-                        <li><a href="http://vital.ai/#join">Join Us</a></li>
-                        <li><a href="http://vital.ai/#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-sm-3 col-sm-offset-1">
-                <nav>
-                    <h6>Products &amp; Services</h6>
-                    <ul>
-                        <li><a href="http://vital.ai/#product">Development Kit</a></li>
-                        <li><a href="http://vital.ai/#product">App Platform</a></li>
-                        <li><a href="http://vital.ai/#product">App Platform + Source</a></li>
-                        <li><a href="http://vital.ai/#data-science-services">Data Science</a></li>
-                        <li><a href="http://vital.ai/#software-development">Software Development</a></li>
-                    </ul>
-                </nav>
-            </div>
 
-            <div class="col-sm-3 col-sm-offset-2">
-                <nav>
-                    <h6>Resources</h6>
-                    <ul>
-                        <li><a target=_blank
-                href="http://vital-ai.github.io/vital-documentation/">Documentation</a></li>
-		      <li><a target=_blank
-		      href="http://support.vital.ai">Support Forum</a></li>
-		      <li><a target=_blank
-		      href="http://vital.ai/discussion-list.html">Discussion List</a></li>
-                        <li><a href="http://vital.ai/site/terms-of-service.html">Terms of Service</a></li>
-                        <li><a href="http://vital.ai/site/privacy-policy.html">Privacy Policy</a></li>
-                        <!-- <li><a target=_blank href="login.html">Customer Portal Login</a></li> -->
-                        <li><a
-                href="https://dashboard.vital.ai/mailingAdd.html">Manage Mailing List Membership</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-   
+<div class="content-placeholder-10"></div>
     
-</footer>
+<script id="footer">
+
+var thefooter = JST['templates/footer.hbs'];
+    
+
+var context={
+  vitalSiteURL: 'http://vital.ai'
+};
+ 
+           
+    
+  // Pass our data to the template
+  var theCompiledHtml = thefooter(context);
+    
+
+  // Add the compiled html to the page
+  $('.content-placeholder-10').html(theCompiledHtml);
+
+</script>  
 
 
 
@@ -253,7 +185,7 @@
         </div>
 
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="common-files/js/jquery-1.10.2.min.js"></script>
+        
         <script src="flat-ui/js/bootstrap.min.js"></script>
         <script src="common-files/js/modernizr.custom.js"></script>
         <script src="common-files/js/page-transitions.js"></script>
@@ -274,6 +206,71 @@
         <!--<script src="js/auto-slider.js" type="text/javascript"></script>-->
         
 
+       <!-- console session -->
+       <script src="javascripts/jquery.cookie-1.4.0.js"></script>
+       
+       <script type="text/javascript">
+   
+         var onLoginResponse = function(data) {
+
+            console.log('login response: ', data);
+
+            var loggedIn = data.loginState;
+
+            var cp1 = $('#main-header');
+
+            
+            if( loggedIn == false ) {
+            
+              console.log("not logged in");
+              
+              cp1.find('.current-email').text( '' );
+              cp1.find('.logged-in-visible').hide();
+              cp1.find('.logged-out-visible').show();
+              
+            } else {
+
+              console.log("logged in");
+              
+              cp1.find('.current-email').text( data.loginID );
+              cp1.find('.logged-out-visible').hide();
+              cp1.find('.logged-in-visible').show();
+              
+              
+            }
+            
+        };
+       
+        $(function(){
+        
+          var cookieName = 'sessionID.console';
+          var jsonpURL = 'https://console.vital.ai/loginState.jsonp?sessionID=';
+          if(window.location.hostname.startsWith('dev.')) { 
+            cookieName = 'sessionID.commerce'; 
+            jsonpURL = 'http://dev.vital-console.vital.ai/loginState.jsonp?sessionID=';
+          }
+        
+          var sessionID = $.cookie(cookieName);
+          
+          if(sessionID != null && sessionID.length > 0) {
+            
+            jsonpURL += ( sessionID + '&callback=onLoginResponse');
+            //var Login_4ddd1c15-6af2-42fb-addc-77be92a8d576&callback=doIT
+          
+            $('head').append( $('<script>', {type: 'text/javascript', src: jsonpURL}) );
+          
+          } else {
+          
+            //if no session just call handler
+            onLoginResponse({loginState: false});
+            
+          }
+        
+          
+        
+        });
+       
+       </script>
 
     </body>
 </html>
