@@ -242,23 +242,43 @@ var context={
             
         };
        
+        var onLogoutResponse = function(data) {
+        
+            console.log('logout response: ', data);
+            
+            //just notify the listeners of logout event
+            onLoginResponse({loginState: false});
+        
+        }
+       
         $(function(){
         
           var cookieName = 'sessionID.console';
           var jsonpURL = 'https://console.vital.ai/loginState.jsonp?sessionID=';
+          var logoutURL = 'https://console.vital.ai/logout.jsonp?sessionID=';
           if(window.location.hostname.startsWith('dev.')) { 
             cookieName = 'sessionID.commerce'; 
             jsonpURL = 'http://dev.vital-console.vital.ai/loginState.jsonp?sessionID=';
+            logoutURL = 'http://dev.vital-console.vital.ai/logout.jsonp?sessionID=';
           }
         
           var sessionID = $.cookie(cookieName);
           
           if(sessionID != null && sessionID.length > 0) {
             
-            jsonpURL += ( sessionID + '&callback=onLoginResponse');
-            //var Login_4ddd1c15-6af2-42fb-addc-77be92a8d576&callback=doIT
-          
+            jsonpURL += ( sessionID + '&callback=onLoginResponse&_timestamp=' + new Date().getTime() );
+            
+            logoutURL += ( sessionID + '&callback=onLogoutResponse&_timestamp=' + new Date().getTime() );
+            
             $('head').append( $('<script>', {type: 'text/javascript', src: jsonpURL}) );
+          
+            $('#logout-button').click(function(event){
+            
+              $('head').append( $('<script>', {type: 'text/javascript', src: logoutURL}) );
+            
+              return false;
+              
+            });
           
           } else {
           
