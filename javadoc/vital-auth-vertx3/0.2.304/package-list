@@ -1,0 +1,4 @@
+ai.vital.auth.handlers
+ai.vital.auth.queries
+ai.vital.auth.vertx3
+org.githubusercontent.defuse.passwordhash
