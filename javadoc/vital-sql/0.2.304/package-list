@@ -1,0 +1,13 @@
+ai.vital.sql
+ai.vital.sql.config
+ai.vital.sql.connector
+ai.vital.sql.dao
+ai.vital.sql.model
+ai.vital.sql.query
+ai.vital.sql.schemas
+ai.vital.sql.schemas.amazonredshift
+ai.vital.sql.schemas.apachesparksql
+ai.vital.sql.schemas.mysql
+ai.vital.sql.schemas.postgresql
+ai.vital.sql.services
+ai.vital.sql.utils
