@@ -23,7 +23,7 @@ this["JST"]["templates/footer.hbs"] = Handlebars.template({"compiler":[7,">= 4.0
     + alias4(((helper = (helper = helpers.vitalSiteURL || (depth0 != null ? depth0.vitalSiteURL : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vitalSiteURL","hash":{},"data":data}) : helper)))
     + "/site/privacy-policy.html\">Privacy Policy</a></li>\n                        <!-- <li><a target=_blank href=\"login.html\">Customer Portal Login</a></li> -->\n                        <li><a href=\""
     + alias4(((helper = (helper = helpers.consoleURL || (depth0 != null ? depth0.consoleURL : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"consoleURL","hash":{},"data":data}) : helper)))
-    + "/mailinglist\">Manage Mailing List Membership</a></li>\n                    </ul>\n                </nav>\n            </div>\n           <center> Copyright © 2016 Vital AI, LLC </center>\n        </div>\n    </div>\n   \n    \n</footer>\n  ";
+    + "/mailinglist\">Manage Mailing List Membership</a></li>\n                    </ul>\n                </nav>\n            </div>\n           <center> Copyright © 2017 Vital AI, LLC </center>\n        </div>\n    </div>\n   \n    \n</footer>\n  ";
 },"useData":true});
 
 this["JST"]["templates/header.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
